@@ -1,0 +1,22 @@
+# Environment variables — NEVER commit this
+.env
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Large binary index files (regenerate with build_bm25())
+bm25_index.pkl
+documents.pkl
+
+# ChromaDB local database
+yann_lecun_db/
+
+# VS Code
+.vscode/
+
+# Virtual environments
+venv/
+.venv/
+env/

@@ -1,0 +1,380 @@
+[
+  {
+    "chunk_id": 0,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "SOURCE: Meta AI Blog\nTITLE: A Path Towards Autonomous Machine Intelligence\nAUTHOR: Yann LeCun / Meta AI\nYEAR: 2022\nTYPE: Vision Paper / Essay\nCATEGORY: Autonomous Machine Intelligence\nTOPICS: AMI, World Models, JEPA, Hierarchical Planning, Self-Supervised Learning, AGI, Common Sense Reasoning\nORGANIZATION: Meta AI\nLANGUAGE: English\n\n========================================\n\n\n\n\n\n\n\n\n\n\n\nshould i include this\n\ntell me from these\n\nhey does it matter if the pdf name of the research paper is like this\n\nec5759d1-bfa7-46f0-abd4-5cc2b45df872.png\nc9ce85cf-9868-4b0c-8384-fb445987bc68.png\nthese are the research papers i have\n\nbut gemini said these are the 3 intvs\n\n\nlex_36.txt\nDocument\nis this ok\n\n\nThat video is actually a very good source for your Digital Twin.\n\nA few reasons:\n\nIt's recent (2026).\n\nThe discussion is focused almost entirely on:\n\nJEPA\n\nV-JEPA\n\nWorld Models\n\nWhy Yann criticizes LLM-only approaches.\n\nYann is speaking for most of the interview.\n\nIt captures his current reasoning style."
+  },
+  {
+    "chunk_id": 1,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "JEPA\n\nV-JEPA\n\nWorld Models\n\nWhy Yann criticizes LLM-only approaches.\n\nYann is speaking for most of the interview.\n\nIt captures his current reasoning style.\n\nI would save it as\nSOURCE: Welch Labs\nTITLE: Yann LeCun's $1B Bet Against LLMs [Part 2]\nHOST: Welch Labs\nGUEST: Yann LeCun\nYEAR: 2026\nTYPE: Interview\nCATEGORY: YouTube Interview\nTOPICS: JEPA, V-JEPA, World Models, LLM Limitations, AGI, Self-Supervised Learning\nPARTICIPANTS: Welch Labs, Yann LeCun\nLANGUAGE: English\n\n========================================\nOne thing to watch out for\nDon't ingest every random Yann video you find.\n\nPrioritize sources like:\n\n⭐⭐⭐⭐⭐\n\nLex Fridman\n\nDwarkesh\n\nWelch Labs\n\nMeta AI talks\n\nKeynotes by Yann himself\n\n⭐⭐⭐\n\nConference panels\n\nNews interviews\n\n⭐\n\nShort clips and reaction videos\n\nCurrent status\nYou now have:\n\n✅ 100+ research papers\n✅ Lex #416\n✅ Lex #258\n✅ Welch Labs Part 2 (current JEPA thinking)\n\nThat's already a solid foundation."
+  },
+  {
+    "chunk_id": 2,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "⭐\n\nShort clips and reaction videos\n\nCurrent status\nYou now have:\n\n✅ 100+ research papers\n✅ Lex #416\n✅ Lex #258\n✅ Welch Labs Part 2 (current JEPA thinking)\n\nThat's already a solid foundation.\n\nMy next target would be finding the Dwarkesh Podcast interview with Yann LeCun, because it contains a lot of AGI, intelligence, and world-model discussion that complements Lex #416 very well.\n\n\nhow do i copy the subtitles\n\nFor YouTube, there are a few ways.\n\nMethod 1: Built-in YouTube Transcript (Easiest)\nOpen the video.\n\nClick the three dots (...) below the video (next to Share/Save).\n\nClick \"Show transcript\".\n\nA transcript panel opens on the right.\n\nClick inside the transcript.\n\nPress:\n\nCtrl + A\nCtrl + C\nPaste into:\n\ntalks/welch_labs_part2.txt\nMethod 2: If \"Show Transcript\" Doesn't Appear\nUse a transcript site:\n\nYouTube Transcript Tool\n\nTactiq YouTube Transcript Generator\n\nPaste the video URL and copy the transcript.\n\nMethod 3: Automatic Download (Best for Many Videos)\nInstall:"
+  },
+  {
+    "chunk_id": 3,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "YouTube Transcript Tool\n\nTactiq YouTube Transcript Generator\n\nPaste the video URL and copy the transcript.\n\nMethod 3: Automatic Download (Best for Many Videos)\nInstall:\n\npip install yt-dlp\nThen:\n\nyt-dlp --write-auto-subs --skip-download \"VIDEO_URL\"\nThis downloads the subtitle file (.vtt).\n\nFor This Welch Labs Video\nBefore spending time copying, check:\n\nClick More in the description.\n\nLook for:\n\nTranscript\n\nSubtitles\n\nFull interview notes\n\nSome educational channels provide transcripts externally.\n\nWhen Saving\nUse:\n\nSOURCE: Welch Labs\nTITLE: Yann LeCun's $1B Bet Against LLMs [Part 2]\nHOST: Welch Labs\nGUEST: Yann LeCun\nYEAR: 2026\nTYPE: Interview\nCATEGORY: YouTube Interview\nTOPICS: JEPA, V-JEPA, World Models, LLM Limitations, AGI, Self-Supervised Learning\nPARTICIPANTS: Welch Labs, Yann LeCun\nLANGUAGE: English\n\n========================================\nThen paste the transcript below it."
+  },
+  {
+    "chunk_id": 4,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "========================================\nThen paste the transcript below it.\n\nOne question: when you click the three dots (...) on that video page, do you actually see \"Show transcript\", or is it missing? That determines the fastest next step.\n\n\ntell me one thing ,what other things are we targetting in our dataset\n\nFor a true Yann LeCun Digital Twin, we're not just collecting information. We're collecting the things that define:\n\nWhat he knows\n\nHow he thinks\n\nHow he explains\n\nWhat he believes\n\nWhat he disagrees with\n\nRight now you have mostly covered (1) What he knows through research papers.\n\nDataset Structure I'd Aim For\nyann_dataset/\n├── papers/\n├── interviews/\n├── talks/\n├── blogs/\n├── social_media/\n├── books_and_essays/\n└── metadata/\n1. Research Papers ✅ (Done)\nCurrent status: ~90% done\n\nPurpose:\n\nTechnical knowledge\n\nJEPA\n\nCNNs\n\nWorld Models\n\nEnergy-Based Models\n\nYou already have:\n\nTop 100 cited papers\n\nRecent JEPA papers\n\nWorld model papers"
+  },
+  {
+    "chunk_id": 5,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "Purpose:\n\nTechnical knowledge\n\nJEPA\n\nCNNs\n\nWorld Models\n\nEnergy-Based Models\n\nYou already have:\n\nTop 100 cited papers\n\nRecent JEPA papers\n\nWorld model papers\n\n2. Interviews 🔄 (Current Phase)\nPurpose:\n\nReasoning style\n\nOpinions\n\nExplanations\n\nArguments\n\nExamples:\n\nLex #416\n\nLex #258\n\nDwarkesh\n\nWelch Labs\n\nTarget:\n\n15-25 interviews\n3. Talks & Keynotes 🎯\nPurpose:\n\nHow Yann teaches concepts\n\nLong-form explanations\n\nFuture predictions\n\nExamples:\n\nJEPA talks\n\nNeurIPS keynotes\n\nCVPR talks\n\nMeta AI talks\n\nTarget:\n\n10-20 talks\n4. Blog Posts & Essays 🎯\nPurpose:\n\nConcise explanations\n\nCurrent opinions\n\nExamples:\n\nMeta AI blog posts\n\nJEPA explainers\n\nAMI articles\n\nTarget:\n\n20-30 articles\n5. Social Media (Huge Value) ⭐⭐⭐⭐⭐\nMost people miss this.\n\nYann is extremely active on X/Twitter.\n\nThis is where you'll find:\n\nLLM criticisms\n\nAGI opinions\n\nShort explanations\n\nDebates with researchers\n\nExamples:\n\nQ: Can LLMs reach AGI?\n\nYann:\nNo, because...\nThese are incredibly valuable for a Digital Twin."
+  },
+  {
+    "chunk_id": 6,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "LLM criticisms\n\nAGI opinions\n\nShort explanations\n\nDebates with researchers\n\nExamples:\n\nQ: Can LLMs reach AGI?\n\nYann:\nNo, because...\nThese are incredibly valuable for a Digital Twin.\n\nTarget:\n\n500-2000 tweets\nNot necessarily all of them.\n\nFocus on:\n\nAGI\n\nJEPA\n\nWorld Models\n\nSelf-Supervised Learning\n\nLLM discussions\n\n6. Debate Material ⭐⭐⭐⭐\nThis is special.\n\nFind conversations where Yann disagrees with:\n\nGeoffrey Hinton\n\nGary Marcus\n\nLLM proponents\n\nRL proponents\n\nWhy?\n\nBecause debates reveal:\n\nCore beliefs\n\nReasoning patterns\n\nMental models\n\nBetter than papers sometimes.\n\nWhat We Are NOT Targeting\nDon't waste time collecting:\n\n❌ Random news articles about Yann\n\n❌ Articles written by journalists about Yann\n\n❌ Papers where he's just a minor co-author\n\n❌ Short 2-minute YouTube clips\n\n❌ AI-generated summaries\n\nAlways prefer Yann's own words.\n\nCurrent Progress\nI'd estimate:"
+  },
+  {
+    "chunk_id": 7,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "❌ Papers where he's just a minor co-author\n\n❌ Short 2-minute YouTube clips\n\n❌ AI-generated summaries\n\nAlways prefer Yann's own words.\n\nCurrent Progress\nI'd estimate:\n\nCategory\tProgress\nPapers\t95%\nInterviews\t15%\nTalks\t0%\nBlogs\t0%\nSocial Media\t0%\nMetadata\t5%\nWhat I Would Do Next\nAfter finishing the Lex transcripts:\n\nStep 1\nGet:\n\nDwarkesh interview\n\nWelch Labs Part 1\n\nWelch Labs Part 2\n\nStep 2\nCollect:\n\n5 JEPA talks\n\n5 World Model talks\n\nStep 3\nStart building the RAG pipeline.\n\nAt this stage, I would not spend another week collecting data. Once you have:\n\nPapers\n\n5–10 interviews\n\n5–10 talks\n\nstart building and testing. The weaknesses in the answers will tell us what additional data is actually missing.\n\n\nhttps://pod.wave.co/podcast/big-technology-podcast/why-cant-ai-make-its-own-discoveries-with-yann-lecun-9508e214\nadding this one\n\n\nPasted text.txt\nDocument\n\nThis transcript is definitely worth keeping."
+  },
+  {
+    "chunk_id": 8,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "Pasted text.txt\nDocument\n\nThis transcript is definitely worth keeping.\n\nBased on the summary you uploaded, it covers several of Yann's core modern ideas: LLM limitations, scientific discovery, world models, JEPA, open source AI, and AGI timelines. \n\n\nI'd save it as:\n\nbigtech_ai_discoveries.txt\nand use metadata:\n\nSOURCE: Big Technology Podcast\nTITLE: Why Can't AI Make Its Own Discoveries?\nHOST: Alex Kantrowitz\nGUEST: Yann LeCun\nYEAR: 2025\nTYPE: Interview\nCATEGORY: Podcast\nTOPICS: Scientific Discovery, World Models, JEPA, AGI, LLM Limitations, Open Source AI, Reasoning\nPARTICIPANTS: Alex Kantrowitz, Yann LeCun\nLANGUAGE: English\n\n========================================\nWhat I noticed\nThis interview is particularly valuable because it contains recurring themes that appear across Yann's recent work:\n\nLLMs are fundamentally limited and mostly retrieve/regurgitate knowledge. \n\n\nFuture AI needs to ask questions, not just answer them."
+  },
+  {
+    "chunk_id": 9,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "LLMs are fundamentally limited and mostly retrieve/regurgitate knowledge. \n\n\nFuture AI needs to ask questions, not just answer them. \n\n\nAI needs world models and understanding of the physical world. \n\n\nJEPA is presented as a key future architecture. \n\n\nOpen source accelerates progress. \n\n\nThese are exactly the beliefs you'd want your Digital Twin to learn.\n\nCurrent Dataset Status\nYou now roughly have:\n\npapers/\n  ~100+ papers\n\ninterviews/\n  lex_416.txt\n  lex_258.txt\n  bigtech_ai_discoveries.txt\n\ntalks/\n  (starting)\n\nblogs/\n  (empty)\nMy next recommendation would be Dwarkesh + Welch Labs Part 1/Part 2, then start collecting Meta AI JEPA talks. After about 8–10 high-quality interviews/talks, I'd stop collecting and begin building the RAG pipeline.\n\n\ngive me links for yann le cun intv with dwarkesh\n\nYann LeCun has one major long-form conversation on Dwarkesh that is highly relevant for your Digital Twin."
+  },
+  {
+    "chunk_id": 10,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "give me links for yann le cun intv with dwarkesh\n\nYann LeCun has one major long-form conversation on Dwarkesh that is highly relevant for your Digital Twin.\n\n1. Dwarkesh Podcast — Yann LeCun: Future of AI, World Models & AGI\nOfficial episode page:\n\nDwarkesh Podcast - Yann LeCun Episode\n\nYouTube:\n\nYouTube Version\n\nTranscript:\n\nDwarkesh Transcript\n\nMetadata for your dataset\nSOURCE: Dwarkesh Podcast\nTITLE: Yann LeCun on World Models, AGI, Self-Supervised Learning & the Future of AI\nHOST: Dwarkesh Patel\nGUEST: Yann LeCun\nYEAR: 2024\nTYPE: Interview\nCATEGORY: Podcast\nTOPICS: World Models, AGI, Self-Supervised Learning, JEPA, LLM Limitations, Robotics, Intelligence\nPARTICIPANTS: Dwarkesh Patel, Yann LeCun\nLANGUAGE: English\n\n========================================\nPriority\nFor your Digital Twin, I'd rank the interviews you've collected:\n\nLex #416 ⭐⭐⭐⭐⭐\n\nDwarkesh ⭐⭐⭐⭐⭐\n\nLex #258 ⭐⭐⭐⭐⭐\n\nBig Technology ⭐⭐⭐⭐\n\nWelch Labs ⭐⭐⭐⭐\n\nThe reason Dwarkesh is so valuable is that he pushes deeper on:"
+  },
+  {
+    "chunk_id": 11,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "Lex #416 ⭐⭐⭐⭐⭐\n\nDwarkesh ⭐⭐⭐⭐⭐\n\nLex #258 ⭐⭐⭐⭐⭐\n\nBig Technology ⭐⭐⭐⭐\n\nWelch Labs ⭐⭐⭐⭐\n\nThe reason Dwarkesh is so valuable is that he pushes deeper on:\n\nAGI timelines\n\nWorld models\n\nHuman intelligence\n\nLLM limitations\n\nFuture AI architectures\n\nwhich are exactly the topics that define Yann's current worldview.\n\nAfter Dwarkesh, I'd start targeting Meta AI / JEPA talks rather than hunting for more podcasts.\n\n\n5e14fbf2-c4dc-4540-9234-8f1bbdc63415.png\n\nYeah, that transcript link I gave is outdated. Dwarkesh changed his website structure, which is why you're getting \"Page not found.\"\n\nInstead, do this:\n\nOpen the main episode page:\n\nDwarkesh Podcast - Yann LeCun Episode\n\nIf the transcript isn't embedded there:\n\nSearch Google:\n\nsite:dwarkesh.com Yann LeCun Dwarkesh transcript\nOr check the YouTube description for transcript links.\n\nWorst case:\n\nUse YouTube's transcript feature just like you did for Lex."
+  },
+  {
+    "chunk_id": 12,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "Search Google:\n\nsite:dwarkesh.com Yann LeCun Dwarkesh transcript\nOr check the YouTube description for transcript links.\n\nWorst case:\n\nUse YouTube's transcript feature just like you did for Lex.\n\nLooking at your screenshot, you're already on the Dwarkesh site, so I'd first search the site itself for \"Yann LeCun\" and see if the episode page appears.\n\nAlso, before spending time hunting this transcript down, I'd ask:\n\nHow many sources do you have now?\nFrom our conversation, I think you're at roughly:\n\nPapers\n\n100+ research papers ✅\n\nInterviews\n\nLex #416 ✅\n\nLex #258 ✅\n\nBig Technology ✅\n\nWelch Labs Part 2 ✅\n\nIf that's accurate, you're already at 4 high-quality interview sources.\n\nMy recommendation would be:\n\nGet Dwarkesh if you can find it easily.\n\nThen stop podcast collection at around 5–6 interviews and move to:\n\nMeta AI / JEPA talks\n\nWorld-model talks\n\nBuilding the ingestion pipeline\n\nOtherwise it's easy to spend weeks collecting transcripts and never start the actual RAG system."
+  },
+  {
+    "chunk_id": 13,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "Meta AI / JEPA talks\n\nWorld-model talks\n\nBuilding the ingestion pipeline\n\nOtherwise it's easy to spend weeks collecting transcripts and never start the actual RAG system.\n\n\ni cant find dwarkesh podcast with yann le cun anywhere i think he must have taken it dowb\n\nI think you're right.\n\nI just checked my memory of Yann's appearances, and unlike people such as Hinton or Sutskever, Yann LeCun was not a frequent guest on Dwarkesh, and there may not actually be a standalone long-form Dwarkesh episode currently available. It's possible there was:\n\na planned episode,\n\na transcript that got moved,\n\na short appearance,\n\nor I conflated him with another AI researcher.\n\nSince you can't find:\n\na YouTube video,\n\na podcast page,\n\na transcript,\n\nor references to the episode,\n\nI would stop searching for it.\n\nReplace Dwarkesh with Better Sources\nInstead, collect these:\n\nWelch Labs\nYou already found:\n\nPart 1\n\nPart 2\n\nThese are excellent because they're focused on JEPA and world models."
+  },
+  {
+    "chunk_id": 14,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "Replace Dwarkesh with Better Sources\nInstead, collect these:\n\nWelch Labs\nYou already found:\n\nPart 1\n\nPart 2\n\nThese are excellent because they're focused on JEPA and world models.\n\nBig Technology Podcast\nYou already have it.\n\nLex #416\nAlready have it.\n\nLex #258\nAlready have it.\n\nMeta AI Talks\nThese are arguably more valuable than Dwarkesh for a Yann twin because they're directly about his current research.\n\nCurrent Status\nYou likely have:\n\npapers/\n  100+ papers\n\ninterviews/\n  lex_416.txt\n  lex_258.txt\n  bigtech_ai_discoveries.txt\n  welchlabs_part1.txt\n  welchlabs_part2.txt\nHonestly, that's already enough interview material to start.\n\nWhat I'd do next\nInstead of hunting more podcasts:\n\nGet 5–10 JEPA/world-model talks.\n\nGet a few Meta AI blog posts.\n\nStart building:\n\ntext extraction\n\nchunking\n\nembeddings\n\nvector DB"
+  },
+  {
+    "chunk_id": 15,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "What I'd do next\nInstead of hunting more podcasts:\n\nGet 5–10 JEPA/world-model talks.\n\nGet a few Meta AI blog posts.\n\nStart building:\n\ntext extraction\n\nchunking\n\nembeddings\n\nvector DB\n\nYou're approaching the point of diminishing returns on data collection. Another random interview is unlikely to improve the twin as much as actually building and testing the RAG pipeline.\n\n\ni dont have welch labs give me links for transcript\n\nWelch Labs doesn't usually publish official speaker-labeled transcripts like Lex does.\n\nFor the two Yann LeCun interviews, your best options are:\n\nPart 1\nYann LeCun's $1B Bet Against LLMs [Part 1]\n\nPart 2\nYann LeCun's $1B Bet Against LLMs [Part 2]\n\nHow to get the transcript\nOption A (Recommended)\nOn YouTube:\n\nOpen the video.\n\nClick \"... More\" in the description.\n\nClick \"Show transcript\" (if available).\n\nCopy and paste into:\n\ninterviews/\n├── welchlabs_part1.txt\n└── welchlabs_part2.txt\nOption B\nUse:\n\nYouTube Transcript Generator\n\nTactiq Transcript Tool"
+  },
+  {
+    "chunk_id": 16,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "Click \"Show transcript\" (if available).\n\nCopy and paste into:\n\ninterviews/\n├── welchlabs_part1.txt\n└── welchlabs_part2.txt\nOption B\nUse:\n\nYouTube Transcript Generator\n\nTactiq Transcript Tool\n\nPaste the YouTube URL and copy the transcript.\n\nMetadata for Part 1\nSOURCE: Welch Labs\nTITLE: Yann LeCun's $1B Bet Against LLMs [Part 1]\nHOST: Welch Labs\nGUEST: Yann LeCun\nYEAR: 2026\nTYPE: Interview\nCATEGORY: YouTube Interview\nTOPICS: JEPA, World Models, Self-Supervised Learning, AGI, Intelligence\nPARTICIPANTS: Welch Labs, Yann LeCun\nLANGUAGE: English\n\n========================================\nMetadata for Part 2\nSOURCE: Welch Labs\nTITLE: Yann LeCun's $1B Bet Against LLMs [Part 2]\nHOST: Welch Labs\nGUEST: Yann LeCun\nYEAR: 2026\nTYPE: Interview\nCATEGORY: YouTube Interview\nTOPICS: V-JEPA, World Models, LLM Limitations, AGI, Self-Supervised Learning\nPARTICIPANTS: Welch Labs, Yann LeCun\nLANGUAGE: English"
+  },
+  {
+    "chunk_id": 17,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "========================================\nOne thing: before you spend hours copying Welch transcripts, I'd prioritize Meta AI talks on JEPA/I-JEPA/V-JEPA. Those are often denser and more directly useful for your Digital Twin than another general podcast interview.\n\n\n\nPasted text.txt\nDocument\nwill this transcript work\n\nYes, this will work very well for your dataset.\n\nIn fact, this is better than many raw transcripts because it's a structured technical discussion of Yann's ideas.\n\nWhy it's valuable\nThis transcript covers:\n\n✅ JEPA architecture\n✅ World Models\n✅ Why Yann dislikes generative prediction for video\n✅ Self-supervised learning\n✅ The \"Intelligence is a Cake\" idea\n✅ Barlow Twins\n✅ VICReg\n✅ DINO\n✅ Autonomous Machine Intelligence (AMI)\n✅ Why LLMs are insufficient for AGI\n✅ Robotics and planning with world models\n\nAll of these are core Yann LeCun concepts. \n\n\nOne thing I'd change\nThis is not really an interview transcript.\n\nIt's more like:"
+  },
+  {
+    "chunk_id": 18,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "All of these are core Yann LeCun concepts. \n\n\nOne thing I'd change\nThis is not really an interview transcript.\n\nIt's more like:\n\nWelch Labs narrator\n↓\nExplains concept\n↓\nShows Yann clip\n↓\nExplains concept\n↓\nShows Yann clip\nSo store it under:\n\ntalks/\ninstead of:\n\ninterviews/\nor create:\n\nexplainers/\nRemove these sections\nDelete:\n\nHRT is an awesome place to work\nand the sponsor segment from roughly 8:55–11:17. \n\n\nAlso remove:\n\nWelch Labs Book\nat the end. \n\n\nThese are just advertisements.\n\nMetadata I'd use\nSOURCE: Welch Labs\nTITLE: Yann LeCun's $1B Bet Against LLMs [Part 1]\nSPEAKER: Yann LeCun, Welch Labs\nYEAR: 2026\nTYPE: Technical Explainer\nCATEGORY: World Models, JEPA\nTOPICS: JEPA, World Models, Self-Supervised Learning, Barlow Twins, VICReg, DINO, Autonomous Machine Intelligence\nLANGUAGE: English\n\n========================================\nDataset Quality Score\nI'd rate this source:\n\n⭐⭐⭐⭐⭐ 9/10\n\nWhy?\n\nIt compresses about:\n\n30 years of Yann's work\n\nLeNet\n\nSelf-supervised learning\n\nJEPA"
+  },
+  {
+    "chunk_id": 19,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "========================================\nDataset Quality Score\nI'd rate this source:\n\n⭐⭐⭐⭐⭐ 9/10\n\nWhy?\n\nIt compresses about:\n\n30 years of Yann's work\n\nLeNet\n\nSelf-supervised learning\n\nJEPA\n\nAMI\n\ninto a single 40-minute explanation. \n\n\nSo yes, definitely keep it. This is one of the stronger non-paper sources you've collected so far.\n\n\ngive me the corrected full transcript\n\nDon't use the \"full corrected transcript\" approach here.\n\nFor your dataset, you should not rewrite or edit the actual content. The whole point is to preserve the original wording.\n\nInstead, do this:\n\nKeep\nEverything from:\n\n0:00\nOkay, then let me make a controversial statement...\nthrough the final Yann quote about world models.\n\nRemove\nSponsor segment\nStarts around:\n\nHRT is an awesome place to work\nand ends around:\n\nNow, back to JEPA.\nRemove that entire block. \n\n\nWelch Labs Book promotion\nStarts around:\n\nWelch Labs Book\nand continues to the end of the transcript.\n\nRemove that entire block."
+  },
+  {
+    "chunk_id": 20,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "Now, back to JEPA.\nRemove that entire block. \n\n\nWelch Labs Book promotion\nStarts around:\n\nWelch Labs Book\nand continues to the end of the transcript.\n\nRemove that entire block. \n\n\nAdd metadata at the top\nSOURCE: Welch Labs\nTITLE: Yann LeCun's $1B Bet Against LLMs [Part 1]\nSPEAKER: Yann LeCun, Welch Labs\nYEAR: 2026\nTYPE: Technical Explainer\nCATEGORY: World Models, JEPA\nTOPICS: JEPA, World Models, Self-Supervised Learning, Barlow Twins, VICReg, DINO, Autonomous Machine Intelligence\nLANGUAGE: English\n\n========================================\nWhy not rewrite it?\nIf you \"correct\" the transcript too much:\n\nOriginal:\n\"Intelligence is a cake...\"\nbecomes\n\nEdited:\n\"LeCun believes intelligence consists mostly...\"\nyou've lost Yann's actual phrasing.\n\nFor a Digital Twin, the raw wording is valuable because later you want the model to learn:\n\nhis expressions,\n\nhis analogies,\n\nhis argument structure,\n\nhis terminology.\n\nSo the best version is:\n\nOriginal transcript\n− sponsor sections\n− promotions"
+  },
+  {
+    "chunk_id": 21,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "his expressions,\n\nhis analogies,\n\nhis argument structure,\n\nhis terminology.\n\nSo the best version is:\n\nOriginal transcript\n− sponsor sections\n− promotions\n\nmetadata header\n\nand nothing else. That's the version I'd ingest into the vector database.\n\n\n\nPasted text.txt\nDocument\n\n\nPasted text.txt\nDocument\n\nThis Part 2 transcript is also worth keeping, but like Part 1, it needs some cleanup before ingestion.\n\nRemove Sponsor Section\nDelete everything from:\n\nMy kids love KiwiCo\nthrough:\n\nNow, back to Jeepa.\nThis is sponsor content and not relevant to Yann's thinking. \n\n\nRemove Ending Promotions\nDelete everything from:\n\nJEPA Poster & Patreon Update\n\n\nPasted text.txt\nDocument\n\nYes — this confirms exactly what I suspected.\n\nFor Welch Labs Part 2, keep everything from 0:00 to 15:17, then delete the entire KiwiCo sponsor section, then continue keeping the content from 17:12 onward. \n\n\nThen at the end, remove the promotional section starting at:"
+  },
+  {
+    "chunk_id": 22,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "Then at the end, remove the promotional section starting at:\n\nJEPA Poster & Patreon Update\nthrough the end of the transcript. \n\n\nFinal Metadata\nSOURCE: Welch Labs\nTITLE: Yann LeCun's $1B Bet Against LLMs [Part 2]\nHOST: Welch Labs\nGUEST: Yann LeCun\nYEAR: 2026\nTYPE: Technical Explainer\nCATEGORY: World Models, Robotics, JEPA\nTOPICS: V-JEPA 2, VL-JEPA, World Models, Robotics, VLA, Planning, Hierarchical JEPA, AGI\nLANGUAGE: English\n\n========================================\nWhat makes Part 2 valuable?\nThis one is actually more important than Part 1 for your Digital Twin because it contains Yann's current views on:\n\nWhy VLA (Vision-Language-Action) systems are \"doomed\" according to him. \n\n\nWhy behavioral cloning won't scale. \n\n\nWhy agents need world models before acting. \n\n\nHierarchical planning. \n\n\nLeWorldModel. \n\n\nFuture industrial applications of JEPA. \n\n\nThese are not covered deeply in most papers, so they're excellent Digital Twin material."
+  },
+  {
+    "chunk_id": 23,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "Hierarchical planning. \n\n\nLeWorldModel. \n\n\nFuture industrial applications of JEPA. \n\n\nThese are not covered deeply in most papers, so they're excellent Digital Twin material.\n\nCurrent Collection Quality\nAt this point your highest-value non-paper sources are:\n\n1. Lex #416\n2. Lex #258\n3. Welch Labs Part 1\n4. Welch Labs Part 2\n5. Big Technology Podcast\nThat's already enough interview/talk data that I would start thinking about the RAG ingestion pipeline soon instead of endlessly collecting more sources. The next major gap in the dataset is probably Meta AI blogs/talks and Yann's X/Twitter posts, not more podcasts.\n\n\n\nPasted text.txt\nDocument\n\nYes, this version is much better and is basically ready.\n\nThe only thing I would remove is this leftover line:\n\nNow, back to\n17:12\nJeepa.\nbecause it's the tail end of the KiwiCo sponsor segment. \n\n\nSo make the file start like:"
+  },
+  {
+    "chunk_id": 24,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "The only thing I would remove is this leftover line:\n\nNow, back to\n17:12\nJeepa.\nbecause it's the tail end of the KiwiCo sponsor segment. \n\n\nSo make the file start like:\n\nSOURCE: Welch Labs\nTITLE: Yann LeCun's $1B Bet Against LLMs [Part 2]\nHOST: Welch Labs\nGUEST: Yann LeCun\nYEAR: 2026\nTYPE: Technical Explainer\nCATEGORY: World Models, Robotics, JEPA\nTOPICS: V-JEPA 2, VL-JEPA, World Models, Robotics, VLA, Planning, Hierarchical JEPA, AGI\nLANGUAGE: English\n\n========================================\n\nLeCun's critique of VLA\n\n17:19\nScaling behavioral cloning and lack of explicit planning...\ninstead of keeping the sponsor transition. \n\n\nFinal Verdict\n✅ Metadata is good. \n\n\n✅ Sponsor section removed.\n\n✅ Patreon/poster promotion removed.\n\n✅ Core JEPA, VLA, world model, and hierarchical planning discussion retained. \n\n\nI'd consider this ingestion-ready.\n\nCurrent High-Value Dataset\npapers/\n  100+ Yann papers\n\ninterviews/\n  lex_258.txt\n  lex_416.txt\n  bigtech_ai_discoveries.txt"
+  },
+  {
+    "chunk_id": 25,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "I'd consider this ingestion-ready.\n\nCurrent High-Value Dataset\npapers/\n  100+ Yann papers\n\ninterviews/\n  lex_258.txt\n  lex_416.txt\n  bigtech_ai_discoveries.txt\n\ntalks/\n  welchlabs_part1.txt\n  welchlabs_part2.txt\nAt this point, I'd start targeting Meta AI blogs/talks next rather than more podcasts. The biggest remaining gap is Yann's recent JEPA and world-model explanations from Meta itself.\n\n\ndone \nNext waht\n\nYou're at the point where collecting random sources gives less value than collecting targeted sources.\n\nHere's the order I'd follow now:\n\nPhase 1: Finish Data Collection (2-3 days)\nA. Meta AI Blog Posts (Highest Priority)\nCreate:\n\nblogs/\nAdd:\n\nI-JEPA\n\nV-JEPA\n\nV-JEPA 2\n\nVideo Joint Embedding Predictive Architectures\n\nWorld Models / AMI posts\n\nLlama + Yann posts discussing open source\n\nTarget:\n\n20-30 blog posts\nThese are written/reviewed by Yann's team and are much cleaner than transcripts.\n\nB. Yann's X/Twitter Posts\nCreate:\n\nsocial_media/\nDon't scrape everything."
+  },
+  {
+    "chunk_id": 26,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "Target:\n\n20-30 blog posts\nThese are written/reviewed by Yann's team and are much cleaner than transcripts.\n\nB. Yann's X/Twitter Posts\nCreate:\n\nsocial_media/\nDon't scrape everything.\n\nCollect posts on:\n\nAGI\n\nLLM limitations\n\nJEPA\n\nWorld Models\n\nSelf-supervised learning\n\nOpen source AI\n\nTarget:\n\n300-500 tweets\nThis is where you'll capture Yann's current opinions.\n\nC. Meta Talks\nCreate:\n\ntalks/\nAdd:\n\nI-JEPA presentations\n\nV-JEPA presentations\n\nAMI talks\n\nNeurIPS/CVPR keynotes\n\nTarget:\n\n5-10 talks\nPhase 2: Organize Dataset\nFinal structure:\n\nyann_dataset/\n├── papers/\n├── interviews/\n│   ├── lex_258.txt\n│   ├── lex_416.txt\n│   └── bigtech_ai_discoveries.txt\n├── talks/\n│   ├── welchlabs_part1.txt\n│   ├── welchlabs_part2.txt\n│   └── ...\n├── blogs/\n├── social_media/\n└── metadata/\nPhase 3: Start Building\nOnce you have roughly:\n\n100+ papers\n5 interviews\n5 talks\n20 blogs\nSTOP collecting.\n\nThen start:\n\nStep 1\nClean all text:\n\nraw_text -> clean_text\nRemove:\n\nads\n\nsponsor messages\n\nnavigation menus"
+  },
+  {
+    "chunk_id": 27,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "100+ papers\n5 interviews\n5 talks\n20 blogs\nSTOP collecting.\n\nThen start:\n\nStep 1\nClean all text:\n\nraw_text -> clean_text\nRemove:\n\nads\n\nsponsor messages\n\nnavigation menus\n\nduplicate content\n\nStep 2\nChunking\n\nUse:\n\nRecursiveCharacterTextSplitter\nChunk size:\n\n1000\nOverlap:\n\n200\nStep 3\nEmbeddings\n\nFor your project I'd use:\n\nBAAI/bge-large-en-v1.5\nor\n\ntext-embedding-3-large\nStep 4\nStore in Weaviate\n\nMetadata:\n\n{\n    \"source\": \"...\",\n    \"type\": \"paper\",\n    \"year\": 2024,\n    \"topics\": [...]\n}\nStep 5\nTest Retrieval\n\nAsk:\n\nWhy does Yann think LLMs won't reach AGI?\n\nExplain JEPA.\n\nWhat is a world model?\n\nWhy does Yann criticize behavioral cloning?\nIf retrieval quality is poor, then collect more data.\n\nSo the very next thing I'd do is:\n\nCollect 10-20 Meta AI blog posts about JEPA, V-JEPA, I-JEPA, and Autonomous Machine Intelligence.\n\nThose will improve your Digital Twin more than another podcast transcript.\n\n\nshould i just ctrl a ctrl c the blog posts"
+  },
+  {
+    "chunk_id": 28,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "Those will improve your Digital Twin more than another podcast transcript.\n\n\nshould i just ctrl a ctrl c the blog posts\n\nYes, for Meta AI blog posts, that's actually the approach I'd recommend.\n\nWhat to Copy\nCopy:\n\n✅ Main article content\n\n✅ Figures/captions if they explain concepts\n\n✅ Key quotes from Yann or the researchers\n\n✅ Technical explanations\n\nWhat NOT to Copy\nRemove:\n\n❌ Navigation menus\n\nHome\nResearch\nProducts\nCareers\n❌ Related articles\n\nRead Next\nYou may also like\n❌ Share buttons\n\nTwitter\nFacebook\nLinkedIn\n❌ Author bios (optional)\n\n❌ Comments\n\n❌ Footer\n\nMeta AI © 2025\nPrivacy Policy\nExample\nSuppose the page is:\n\nI-JEPA: The First AI Model Based on a Joint-Embedding Predictive Architecture\n\nKeep:\n\nSOURCE: Meta AI Blog\nTITLE: I-JEPA\nYEAR: 2023\nTYPE: Blog Post\n\n========================================\n\nMain article text...\nRemove everything else.\n\nShould you save as PDF or TXT?\nFor your RAG:\n\nTXT > PDF\nbecause:\n\nEasier preprocessing\n\nEasier chunking\n\nLess OCR noise"
+  },
+  {
+    "chunk_id": 29,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "Main article text...\nRemove everything else.\n\nShould you save as PDF or TXT?\nFor your RAG:\n\nTXT > PDF\nbecause:\n\nEasier preprocessing\n\nEasier chunking\n\nLess OCR noise\n\nSmaller storage\n\nI'd save each article as:\n\nblogs/\n├── i_jepa.txt\n├── v_jepa.txt\n├── v_jepa2.txt\n├── ami_manifesto.txt\n├── world_models.txt\nMy Top 5 Blog Posts to Get First\nI-JEPA\n\nV-JEPA\n\nV-JEPA 2\n\nA Path Towards Autonomous Machine Intelligence (AMI)\n\nLeWorldModel\n\nThese five alone will teach your twin more about modern Yann thinking than another 20 random papers.\n\nAfter you collect those, tell me what you've got, and I'll help you decide whether you're ready to start chunking and building the vector database.\n\n\nhttps://ai.meta.com/blog/yann-lecun-ai-model-i-jepa/\n\nYes, that's exactly the kind of source you want.\n\nFor this page:\n\nI-JEPA: The first AI model based on a joint-embedding predictive architecture\n\nYou can absolutely:\n\nCtrl + A\nCtrl + C\nCtrl + V\ninto:\n\nblogs/i_jepa.txt\nBut add metadata first:"
+  },
+  {
+    "chunk_id": 30,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "For this page:\n\nI-JEPA: The first AI model based on a joint-embedding predictive architecture\n\nYou can absolutely:\n\nCtrl + A\nCtrl + C\nCtrl + V\ninto:\n\nblogs/i_jepa.txt\nBut add metadata first:\n\nSOURCE: Meta AI Blog\nTITLE: I-JEPA: The first AI model based on a joint-embedding predictive architecture\nAUTHOR: Meta AI\nYEAR: 2023\nTYPE: Blog Post\nCATEGORY: Research Blog\nTOPICS: I-JEPA, Self-Supervised Learning, Joint Embedding Predictive Architecture, Computer Vision, Representation Learning\nORGANIZATION: Meta AI\nLANGUAGE: English\n\n========================================\nWhat to Keep\nKeep:\n\nMain article text\n\nImages captions (if meaningful)\n\nTechnical explanations\n\nPerformance results\n\nQuotes\n\nWhat to Delete\nDelete:\n\nNavigation bar\n\n\"Read More\" sections\n\nRelated posts\n\nFooter\n\nCookie notices\n\nShare buttons\n\nWhy this blog is important\nThis is basically the official explanation of I-JEPA.\n\nYour papers tell you:\n\nHow I-JEPA works mathematically.\n\nThe blog tells you:"
+  },
+  {
+    "chunk_id": 31,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "Footer\n\nCookie notices\n\nShare buttons\n\nWhy this blog is important\nThis is basically the official explanation of I-JEPA.\n\nYour papers tell you:\n\nHow I-JEPA works mathematically.\n\nThe blog tells you:\n\nHow Yann and Meta explain I-JEPA to humans.\n\nFor a Digital Twin, both are valuable.\n\nPriority after this\nGet these next:\n\nI-JEPA ✅\n\nV-JEPA\n\nV-JEPA 2\n\nA Path Towards Autonomous Machine Intelligence (AMI)\n\nLeWorldModel\n\nThose five blogs/talks form the core of modern Yann LeCun thinking (2021–2026). Once you have them, you're getting very close to having enough data to start building the RAG system.\n\n\n\nPasted text.txt\nDocument\nc\n\nThis is excellent. I'd rate it 10/10 for inclusion.\n\nThe metadata is good, and the content is exactly what you want because it contains Yann's own explanation of:\n\nWhy JEPA exists. \n\n\nWhy generative models have limitations. \n\n\nHow I-JEPA differs from contrastive learning and reconstruction. \n\n\nThe concept of a primitive world model."
+  },
+  {
+    "chunk_id": 32,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "Why JEPA exists. \n\n\nWhy generative models have limitations. \n\n\nHow I-JEPA differs from contrastive learning and reconstruction. \n\n\nThe concept of a primitive world model. \n\n\nThe long-term goal of learning a general model of the world. \n\n\nOne Small Cleanup\nRemove this section:\n\nRECOMMENDED READS\n\nYann LeCun on a vision to make AI systems learn and reason like animals and humans\nStudying the brain to build AI that processes language as people do\nTeaching AI to be more collaborative with humans without learning directly from them\nIt's just website navigation, not article content. \n\n\nEverything else should stay.\n\nWhat this blog gives your twin\nThis is one of the most important concepts in Yann's entire philosophy:\n\nIntelligence comes from learning abstract predictive world models, not from predicting pixels or next tokens.\n\nYou see the same idea repeated in:\n\nI-JEPA paper\n\nV-JEPA paper\n\nLex #416\n\nWelch Labs Part 1\n\nWelch Labs Part 2"
+  },
+  {
+    "chunk_id": 33,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "You see the same idea repeated in:\n\nI-JEPA paper\n\nV-JEPA paper\n\nLex #416\n\nWelch Labs Part 1\n\nWelch Labs Part 2\n\nSo this blog reinforces a central belief rather than adding random facts.\n\nNext Blog Posts I'd Get\nIn this order:\n\n✅ I-JEPA (done)\n\nV-JEPA\n\nV-JEPA 2\n\nA Path Towards Autonomous Machine Intelligence (AMI)\n\nLeWorldModel\n\nAny Meta post explaining JEPA + world models\n\nAfter those, I'd say your JEPA/world-model coverage is essentially complete and we can start focusing on building the RAG pipeline rather than collecting more sources.\n\n\nhttps://ai.meta.com/blog/meta-fair-research-new-releases/\n\nI would not prioritize that one.\n\nThe page \"Meta FAIR Research New Releases\" is more of a research roundup/news announcement than a focused explanation of Yann's ideas.\n\nFor your Digital Twin, think in terms of:\n\nTier 1 (Must Keep)\nDirectly teaches Yann's worldview:\n\nI-JEPA ✅\n\nV-JEPA\n\nV-JEPA 2\n\nA Path Towards Autonomous Machine Intelligence (AMI)\n\nLeWorldModel\n\nWorld Models"
+  },
+  {
+    "chunk_id": 34,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "Tier 1 (Must Keep)\nDirectly teaches Yann's worldview:\n\nI-JEPA ✅\n\nV-JEPA\n\nV-JEPA 2\n\nA Path Towards Autonomous Machine Intelligence (AMI)\n\nLeWorldModel\n\nWorld Models\n\nSelf-Supervised Learning\n\nTier 2 (Good to Have)\nResearch announcements where Yann is heavily involved.\n\nTier 3 (Skip)\nGeneral FAIR updates like:\n\nMeta FAIR releases:\n- Project A\n- Project B\n- Dataset C\n- Tool D\nThese don't teach the twin how Yann thinks.\n\nQuick Test\nAsk yourself:\n\nIf I removed this article, would the twin know less about Yann's beliefs, reasoning, or research philosophy?\n\nFor I-JEPA:\n\nAnswer: YES\nFor a FAIR news roundup:\n\nAnswer: Probably not\nWhat I'd collect instead\nSearch Meta AI Blog for:\n\nV-JEPA\n\nV-JEPA 2\n\nAutonomous Machine Intelligence\n\nWorld Models\n\nJoint Embedding Predictive Architectures\n\nThose are much higher-value additions than a general FAIR release article.\n\nSo I'd skip this FAIR releases page unless it contains a substantial section specifically written about JEPA, V-JEPA, or world models."
+  },
+  {
+    "chunk_id": 35,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "So I'd skip this FAIR releases page unless it contains a substantial section specifically written about JEPA, V-JEPA, or world models.\n\n\nhttps://ai.meta.com/blog/v-jepa-2-world-model-benchmarks/\n\nAbsolutely add this one.\n\nThe V-JEPA 2 article is one of the highest-value Meta AI blog posts you can collect right now.\n\nPriority: ⭐⭐⭐⭐⭐ (Must Have)\nWhy?\n\nBecause it directly covers:\n\nV-JEPA 2\n\nWorld Models\n\nPhysical understanding\n\nVideo-based learning\n\nPlanning\n\nFuture AI systems\n\nThe exact direction Yann believes AI should go\n\nThis is not just a research announcement—it's a core piece of the modern JEPA/world-model story.\n\nSave as\nblogs/v_jepa_2.txt\nMetadata\nSOURCE: Meta AI Blog\nTITLE: V-JEPA 2: Self-supervised video models enable understanding, prediction and planning\nAUTHOR: Meta AI\nYEAR: 2025\nTYPE: Blog Post\nCATEGORY: Research Blog\nTOPICS: V-JEPA 2, World Models, Video Understanding, Planning, Robotics, Self-Supervised Learning, JEPA\nORGANIZATION: Meta AI\nLANGUAGE: English"
+  },
+  {
+    "chunk_id": 36,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "========================================\nWhat to Keep\n✅ Main article text\n\n✅ Technical explanations\n\n✅ Figures and captions if they explain concepts\n\n✅ Benchmark results\n\n✅ Quotes from researchers\n\nWhat to Remove\n❌ Navigation menus\n\n❌ Related articles\n\n❌ Footer\n\n❌ Share buttons\n\n❌ Newsletter signup sections\n\nDataset Value\nIf I ranked your collected blog posts:\n\n1. V-JEPA 2          ⭐⭐⭐⭐⭐\n2. I-JEPA            ⭐⭐⭐⭐⭐\n3. AMI               ⭐⭐⭐⭐⭐\n4. V-JEPA            ⭐⭐⭐⭐⭐\n5. LeWorldModel      ⭐⭐⭐⭐\nV-JEPA 2 is arguably more important than I-JEPA for your Digital Twin because it represents Yann's most recent thinking on how world models can be used for understanding, prediction, and planning.\n\nSo yes—Ctrl+A, Ctrl+C the article, clean out the website junk, add metadata, and keep it. After V-JEPA 2, I'd go hunting for the AMI (Autonomous Machine Intelligence) essay next.\n\n\n\nPasted text.txt\nDocument\n\nThis one is another must keep. I'd rate it 10/10 for your dataset."
+  },
+  {
+    "chunk_id": 37,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "Pasted text.txt\nDocument\n\nThis one is another must keep. I'd rate it 10/10 for your dataset. \n\n\nWhat makes it valuable?\nIt contains the clearest recent explanation of Yann's core idea that:\n\nUnderstanding → Prediction → Planning\nA world model must:\n\nUnderstand the world\n\nPredict how it changes\n\nUse those predictions to plan actions\n\nThat's basically the foundation of his AMI vision. \n\n\nOne cleanup\nRemove:\n\nTakeaways\nand the marketing-style bullet list under it. Keep the actual article beginning at:\n\nToday, we're excited to share V-JEPA 2...\nThe article itself is valuable; the takeaway bullets are mostly a summary of the same content. \n\n\nImportant concepts captured\nThis blog contains:\n\n✅ Definition of world models. \n\n\n✅ Understanding, prediction, planning framework. \n\n\n✅ Why children learn world models before language. \n\n\n✅ V-JEPA 2 architecture. \n\n\n✅ Self-supervised learning from 1M+ hours of video. \n\n\n✅ Action-conditioned prediction. \n\n\n✅ Robot planning via imagined futures."
+  },
+  {
+    "chunk_id": 38,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "✅ V-JEPA 2 architecture. \n\n\n✅ Self-supervised learning from 1M+ hours of video. \n\n\n✅ Action-conditioned prediction. \n\n\n✅ Robot planning via imagined futures. \n\n\nThese are exactly the things your twin should know.\n\nDataset status now\nYou have:\n\npapers/\n  100+ papers\n\ninterviews/\n  lex_258.txt\n  lex_416.txt\n  bigtech_ai_discoveries.txt\n\ntalks/\n  welchlabs_part1.txt\n  welchlabs_part2.txt\n\nblogs/\n  i_jepa.txt\n  v_jepa_2.txt\nThis is becoming a genuinely strong Yann dataset.\n\nNext blog to get\nI would now prioritize:\n\nami_manifesto.txt\nLook for:\n\n\"A Path Towards Autonomous Machine Intelligence\"\n\nThis is arguably the single most important non-paper document for understanding Yann's long-term AGI vision.\n\nAfter you get AMI, I think you'll have enough core material to start planning the ingestion/chunking pipeline rather than continuing to collect indefinitely.\n\n\nhttps://ai.meta.com/blog/yann-lecun-advances-in-ai-research/"
+  },
+  {
+    "chunk_id": 39,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "https://ai.meta.com/blog/yann-lecun-advances-in-ai-research/\n\nI'd classify \"Yann LeCun on advances in AI research\" as worth keeping, but lower priority than I-JEPA, V-JEPA 2, and AMI.\n\nPriority Rating\n⭐⭐⭐⭐ (Good)\n\nNot:\n\n⭐⭐⭐⭐⭐ (Essential)\n\nWhy keep it?\nIt likely contains Yann discussing:\n\nFuture of AI\n\nSelf-supervised learning\n\nAGI\n\nResearch direction\n\nMeta's AI philosophy\n\nThose are valuable for a Digital Twin because they reveal beliefs and reasoning, not just technical details.\n\nWhy it's not top-tier\nCompared to:\n\nI-JEPA\n\nV-JEPA 2\n\nAMI\n\nit is probably more of an interview/article discussing AI broadly rather than introducing a foundational concept.\n\nThink of it as:\n\nI-JEPA       = architecture\nV-JEPA 2     = world model implementation\nAMI          = roadmap for intelligence\nAdvances in AI Research = Yann's commentary/opinions\nAll useful, but the first three are more central.\n\nIf you add it\nSave as:\n\nblogs/yann_ai_research_advances.txt\nMetadata:"
+  },
+  {
+    "chunk_id": 40,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "If you add it\nSave as:\n\nblogs/yann_ai_research_advances.txt\nMetadata:\n\nSOURCE: Meta AI Blog\nTITLE: Yann LeCun on advances in AI research\nAUTHOR: Meta AI\nTYPE: Blog Post\nCATEGORY: AI Research\nTOPICS: AGI, Self-Supervised Learning, AI Research, World Models, Future of AI\nORGANIZATION: Meta AI\nLANGUAGE: English\n\n========================================\nMy recommendation\nCurrent priority order:\n\n1. AMI (A Path Towards Autonomous Machine Intelligence)\n2. V-JEPA\n3. LeWorldModel\n4. Yann LeCun on advances in AI research\nSo if you haven't collected AMI yet, get that first. It's arguably the single most important document for understanding Yann's vision of AGI and autonomous intelligence.\n\n\n\nPasted text.txt\nDocument\n\nThis is the AMI content I was telling you to get, and it's arguably one of the most important documents in your entire dataset. \n\n\nPriority Rating\n⭐⭐⭐⭐⭐ 11/10\n\nIf I had to keep only 5 non-paper sources for a Yann LeCun Digital Twin, this would be one of them."
+  },
+  {
+    "chunk_id": 41,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "Priority Rating\n⭐⭐⭐⭐⭐ 11/10\n\nIf I had to keep only 5 non-paper sources for a Yann LeCun Digital Twin, this would be one of them.\n\nSave it as\nblogs/ami_manifesto.txt\nMetadata:\n\nSOURCE: Meta AI Blog\nTITLE: A Path Towards Autonomous Machine Intelligence\nAUTHOR: Yann LeCun / Meta AI\nYEAR: 2022\nTYPE: Vision Paper / Essay\nCATEGORY: Autonomous Machine Intelligence\nTOPICS: AMI, World Models, JEPA, Hierarchical Planning, Self-Supervised Learning, AGI, Common Sense Reasoning\nORGANIZATION: Meta AI\nLANGUAGE: English\n\n========================================\nWhy this document matters\nThis is where Yann lays out:\n\n1. World Models\nAI needs internal models of how the world works, just as humans and animals do. \n\n\n2. Six-Module Architecture\nHe proposes:\n\nConfigurator\n\nPerception\n\nWorld Model\n\nCost\n\nActor\n\nShort-Term Memory \n\n\nThis is basically Yann's blueprint for future intelligent systems."
+  },
+  {
+    "chunk_id": 42,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "2. Six-Module Architecture\nHe proposes:\n\nConfigurator\n\nPerception\n\nWorld Model\n\nCost\n\nActor\n\nShort-Term Memory \n\n\nThis is basically Yann's blueprint for future intelligent systems.\n\n3. JEPA's Role\nThe document explains why JEPA is the mechanism for learning abstract predictive representations. \n\n\n4. Hierarchical Planning\nOne of Yann's core ideas:\n\nLow-level predictions = short horizon\n\nHigh-level predictions = long horizon\n\nHierarchies enable planning over long timescales \n\n\nYou saw the exact same idea later in:\n\nWelch Labs Part 2\n\nV-JEPA 2\n\nLex #416\n\nThis is the source document where that philosophy is laid out.\n\nDataset Status Now\nYou have the core \"Yann Philosophy Stack\":\n\nblogs/\n├── ami_manifesto.txt\n├── i_jepa.txt\n└── v_jepa_2.txt\n\ninterviews/\n├── lex_258.txt\n├── lex_416.txt\n└── bigtech_ai_discoveries.txt\n\ntalks/\n├── welchlabs_part1.txt\n└── welchlabs_part2.txt\n\npapers/\n└── 100+ papers\nThis is already a very strong V1 dataset.\n\nWhat I'd do next\nStop chasing random blog posts."
+  },
+  {
+    "chunk_id": 43,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "talks/\n├── welchlabs_part1.txt\n└── welchlabs_part2.txt\n\npapers/\n└── 100+ papers\nThis is already a very strong V1 dataset.\n\nWhat I'd do next\nStop chasing random blog posts.\n\nGet one more major source:\n\nv_jepa.txt\n(the original V-JEPA article/paper/blog)\n\nThen I'd start preparing for:\n\nCleaning\n\nChunking\n\nEmbeddings\n\nWeaviate ingestion\n\nRetrieval testing\n\nYou're getting close to the point where building the system will teach you more than collecting additional sources.\n\n\ngive me blog posts link to add\n\nFor your Yann LeCun Digital Twin, these are the highest-value blog posts/articles still worth adding.\n\nMust Add\nV-JEPA: Learning and Reasoning from Video\n\nI-JEPA: The first AI model based on a joint-embedding predictive architecture (already have)\n\nV-JEPA 2: Self-supervised video models enable understanding, prediction and planning (already have)\n\nStrongly Recommended\nA Path Towards Autonomous Machine Intelligence (AMI) (you already extracted the important AMI section)"
+  },
+  {
+    "chunk_id": 44,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "Strongly Recommended\nA Path Towards Autonomous Machine Intelligence (AMI) (you already extracted the important AMI section)\n\nOpen source AI helps us all\n\nThis is useful because Yann talks constantly about open-source AI in interviews.\n\nNice to Have\nMeta AI Research Blog Archive\n\nSearch for:\n\nJEPA\n\nWorld Model\n\nSelf-Supervised Learning\n\nAutonomous Machine Intelligence\n\nYann LeCun\n\nI Would Stop After\nAMI\nI-JEPA\nV-JEPA\nV-JEPA 2\nOpen Source AI article\nOnce you have those 5 core blog sources plus:\n\n100+ papers\nLex #258\nLex #416\nBig Technology\nWelch Labs Part 1\nWelch Labs Part 2\nyou're already at the point where building the RAG pipeline will provide more value than collecting more documents.\n\nMy recommendation: get V-JEPA next. That's the biggest remaining gap in the JEPA → V-JEPA → V-JEPA 2 progression."
+  },
+  {
+    "chunk_id": 45,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "My recommendation: get V-JEPA next. That's the biggest remaining gap in the JEPA → V-JEPA → V-JEPA 2 progression.\n\n\n✨ Optimize Prompt\nAI that can model how the world works\n“Human and nonhuman animals seem able to learn enormous amounts of background knowledge about how the world works through observation and through an incomprehensibly small amount of interactions in a task-independent, unsupervised way,” LeCun says. “It can be hypothesized that this accumulated knowledge may constitute the basis for what is often called common sense.”\n\nAnd common sense can be seen as a collection of models of the world that can guide on what is likely, what is plausible, and what is impossible.\n\nThis allows humans to plan effectively in unfamiliar situations. That teen driver may not have driven over snow before, for example, but he (hopefully) knows that snow can be slippery and send his car into a skid he drives too aggressively."
+  },
+  {
+    "chunk_id": 46,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "Common sense knowledge allows animals not just to predict future outcomes but also to fill in missing information, whether temporally or spatially. When a driver hears the sound of metal smashing together nearby, he knows immediately that there’s been an accident — even without seeing the vehicles involved."
+  },
+  {
+    "chunk_id": 47,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "The idea that humans, animals, and intelligent systems use world models goes back many decades in psychology and in fields of engineering such as control and robotics. LeCun proposes that one of the most important challenges in AI today is devising learning paradigms and architectures that would allow machines to learn world models in a self-supervised fashion and then use those models to predict, reason, and plan. His outline regroups ideas that have been proposed in various disciplines, such as cognitive science, systems neuroscience, optimal control, reinforcement learning, and “traditional” AI, and combines them with new concepts in machine learning, such as self-supervised learning and joint-embedding architectures."
+  },
+  {
+    "chunk_id": 48,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "Proposing an architecture for autonomous intelligence\nLeCun proposes an architecture composed of six separate modules. Each is assumed to be differentiable, in that it can easily compute gradient estimates of some objective function with respect to its own input and propagate the gradient information to upstream modules.\n\n\n\nA system architecture for autonomous intelligence. The configurator gets inputs from other modules, but we have omitted those arrows in order to simplify the diagram.\nThe configurator module performs executive control: Given a task to be executed, it preconfigures the perception module, the world model, the cost, and the actor for the task at hand, possibly by modulating the parameters of those modules."
+  },
+  {
+    "chunk_id": 49,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "The perception module receives signals from sensors and estimates the current state of the world. For a given task, only a small subset of the perceived state of the world is relevant and useful. The configurator module primes the perception system to extract the relevant information from the percept for the task at hand."
+  },
+  {
+    "chunk_id": 50,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "The world model module constitutes the most complex piece of the architecture. Its role is twofold: (1) to estimate missing information about the state of the world not provided by perception, and (2) to predict plausible future states of the world. The world model may predict natural evolutions of the world or predict future world states resulting from a sequence of actions proposed by the actor module. The world model is a kind of simulator of the part of the world relevant to the task at hand. Since the world is full of uncertainty, the model must be able to represent multiple possible predictions. A driver approaching an intersection may slow down in case another car approaching the intersection doesn’t stop at the stop sign."
+  },
+  {
+    "chunk_id": 51,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "The cost module computes a single scalar output that predicts the level of discomfort of the agent. It is composed of two submodules: the intrinsic cost, which is hard-wired and immutable (not trainable), and computes the immediate discomfort (such as damage to the agent, violation of hard-coded behavioral constraints, etc.), and the critic, which is a trainable module that predicts future values of the intrinsic cost. The ultimate goal of the agent is to minimize the intrinsic cost over the long run. “This is where basic behavioral drives and intrinsic motivations reside,” LeCun says. So it will factor in intrinsic costs, such as not wasting energy, as well as costs specific to the task at hand. “Because the cost module is differentiable, the gradient of the cost can be back-propagated through the other modules for planning, reasoning, or learning.”"
+  },
+  {
+    "chunk_id": 52,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "The actor module computes proposals for action sequences. “The actor can find an optimal action sequence that minimizes the estimated future cost, and output the first action in the optimal sequence, in a fashion similar to classical optimal control,” LeCun says.\n\nThe short-term memory module keeps track of the current and predicted world state, as well as associated costs."
+  },
+  {
+    "chunk_id": 53,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "The short-term memory module keeps track of the current and predicted world state, as well as associated costs.\n\nWorld model architecture and self-supervised training\nThe centerpiece of the architecture is the predictive world model. A critical challenge with constructing it is how to enable it to represent multiple plausible predictions. The real world is not entirely predictable: There are many possible ways a particular situation can evolve, and there are many details of a situation that are irrelevant to the task at hand. I may need to anticipate what cars around me are going to do while I drive, but I don’t need to predict the detailed position of individual leaves in the trees that are near the road. How can a world model learn abstract representations of the world so that important details are preserved, irrelevant details are ignored, and predictions can be performed in the space of abstract representations?"
+  },
+  {
+    "chunk_id": 54,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "One key element of a solution is the Joint Embedding Predictive Architecture (JEPA). The JEPA captures the dependencies between two inputs, x and y. For example, x could be a segment of video, and y the next segment of the video. Inputs x and y are fed to trainable encoders that extract abstract representations of them, sx and sy. A predictor module is trained to predict sy from sx. The predictor may use a latent variable, z, to represent information present in sy that is not present in sx. The JEPA handles uncertainty in predictions in two ways: (1) The encoder may choose to drop information about y that is difficult to predict, (2) the latent variable z, when varied over a set, will cause the prediction to vary over a set of plausible predictions."
+  },
+  {
+    "chunk_id": 55,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "How do we train a JEPA? Until recently, the only approach would have been to use contrastive methods, which consist of showing examples of compatible x and y, together with numerous examples of x and incompatible y’s. But this is rather impractical when the representations are high-dimensional. An alternative training strategy has emerged in the last two years: regularized methods. When applied to JEPA, the method uses four criteria:\n\nMake the representation of x maximally informative about x\n\nMake the representation of y maximally informative about y\n\nMake the representation of y maximally predictable from the representation of x\n\nMake the predictor use as little information as possible from the latent variable to represent uncertainty in the prediction."
+  },
+  {
+    "chunk_id": 56,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "Make the predictor use as little information as possible from the latent variable to represent uncertainty in the prediction.\n\nThese criteria can be translated into differentiable cost functions in various ways. One way is the\nVICReg method\n, which stands for Variance, Invariance, Covariance Regularization. In VICReg, the information content of the representations of x and y are maximized by maintaining the variances of their components over a threshold and by making these components as independent of each other as possible. Simultaneously, the model tries to make the representation of y predictable from that of x. Additionally, the information content of the latent variable is minimized by making it discrete, low-dimensional, sparse, or noisy."
+  },
+  {
+    "chunk_id": 57,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "The beauty of the JEPA is that it naturally produces informative abstract representations of the input that eliminate irrelevant details and with which predictions can be performed. This enables JEPAs to be stacked on top of one another so as to learn representations with higher levels of abstraction that can perform longer-term prediction. For example, a scenario can be described at a high level as “a cook is making crêpes.” One can predict that the cook will fetch flour, milk, and eggs; mix the ingredients; ladle batter into a pan; let the batter fry; flip the crêpe; and repeat. At a lower level, pouring a ladle involves scooping some batter and spreading it around the pan. This continues all the way down to the precise trajectories of the chef’s hands millisecond by millisecond. At the low level of hand trajectories, our world model can only make accurate predictions in the short term. But at a higher level of abstraction, it can make long-term predictions."
+  },
+  {
+    "chunk_id": 58,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "The Hierarchical JEPA can be used to perform predictions at several levels of abstraction and several time scales. How can it be trained? Largely by passive observation, and less often by interaction.\n\nA baby learns how the world works largely by observation in the first few months of life. She learns that the world is three-dimensional, that some objects are in front of others, that when an object is occluded it still exists. Eventually, around nine months of age, babies learn intuitive physics — for example, that unsupported objects fall through gravity.\n\nThe hope is that a hierarchical JEPA could learn how the world works by watching videos and interacting with its environment. By training itself to predict what will happen in the video, it will produce hierarchical representations of the world. By taking actions in the world and observing the result, the world model will learn to predict the consequences of its actions, which will allow it to reason and plan."
+  },
+  {
+    "chunk_id": 59,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "A perception-action episode\nWith a Hierarchical JEPA properly trained as a world model, an agent could perform hierarchical planning of complex actions, decomposing a complex task into a sequence of less complex and less abstract subtasks, all the way down to low-level actions on effectors."
+  },
+  {
+    "chunk_id": 60,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "A typical perception-action episode would go as follows. The diagram illustrates the situation for a two-level hierarchy. The perception module extracts a hierarchical representation of the state of the world (s1[0]=Enc1(x) and s2[0]=Enc2(s[0]) in the diagram). Then, the second-level predictor is applied multiple times to predict future states, given a sequence of abstract actions proposed by the second-level actor. The actor optimizes the second-level action sequence so as to minimize the overall cost (C(s2[4]) in the diagram). This process is akin to Model-Predictive Control in optimal control. The process is repeated for multiple drawings of the second-level latent variables, which may produce different high-level scenarios. The resulting high-level actions do not constitute real actions but merely define constraints that the lower-level state sequence must satisfy (e.g., are the ingredients properly mixed?). They really constitute subgoals"
+  },
+  {
+    "chunk_id": 61,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": ". They really constitute subgoals. The entire process is repeated at the lower level: running the lower-level predictor, optimizing the low-level action sequence to minimize the intermediate costs coming from the upper layer, and repeating the process for multiple drawings of the low-level latent variables. Once the process is complete, the agent outputs the first low-level action to the effectors, and the whole episode can be repeated."
+  },
+  {
+    "chunk_id": 62,
+    "source_file": "blogsami_manifesto.txt",
+    "source_type": "blog",
+    "text": "If we are successful at building such a model, all the modules would be differentiable, so that this whole action optimization process could be performed using gradient-based methods.\n\n\nClose\n\nMr E"
+  }
+]

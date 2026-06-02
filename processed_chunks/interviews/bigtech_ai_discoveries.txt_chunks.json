@@ -1,0 +1,62 @@
+[
+  {
+    "chunk_id": 0,
+    "source_file": "bigtech_ai_discoveries.txt.txt",
+    "source_type": "interview",
+    "text": "SOURCE: Big Technology Podcast\nTITLE: Why Can't AI Make Its Own Discoveries?\nHOST: Alex Kantrowitz\nGUEST: Yann LeCun\nYEAR: 2025\nTYPE: Interview\nCATEGORY: Podcast\nTOPICS: Scientific Discovery, World Models, JEPA, AGI, LLM Limitations, Open Source AI, Reasoning\nPARTICIPANTS: Alex Kantrowitz, Yann LeCun\nLANGUAGE: English\n\n========================================\n\nIntroduction\nIn this episode of the Big Technology Podcast, host Alex Kantrowitz engages in a deep and insightful conversation with Yann LeCun, a luminary in the field of artificial intelligence (AI). The discussion centers around the limitations of current AI systems, particularly Large Language Models (LLMs), in making genuine scientific discoveries, and explores the future paradigms necessary for AI to achieve human-like understanding and innovation.\n\nThe Limitation of Large Language Models (LLMs)\nTimestamp: [00:52]"
+  },
+  {
+    "chunk_id": 1,
+    "source_file": "bigtech_ai_discoveries.txt.txt",
+    "source_type": "interview",
+    "text": "The Limitation of Large Language Models (LLMs)\nTimestamp: [00:52]\n\nAlex opens the dialogue with a critical question: \"Why has generative AI ingested all the world's knowledge but not been able to come up with scientific discoveries of its own?\" This query, inspired by Dwarkesh Patel's thoughts, sets the stage for unraveling the inherent constraints of current AI architectures.\n\nYann LeCun responds by distinguishing between different types of AI:\n\n\"LLMs are trained on an enormous amount of knowledge which is purely text, and they're trained to basically regurgitate... they are incapable of inventing new things.\" ([02:47])\n\nHe emphasizes that while LLMs like ChatGPT can retrieve and generate text based on existing data, they lack the capability to form new connections or innovate independently.\n\nThe Need for Question Generation in AI\nTimestamp: [02:47] - [06:33]"
+  },
+  {
+    "chunk_id": 2,
+    "source_file": "bigtech_ai_discoveries.txt.txt",
+    "source_type": "interview",
+    "text": "The Need for Question Generation in AI\nTimestamp: [02:47] - [06:33]\n\nAlex introduces Tom Wolfe's perspective from Hugging Face, highlighting the necessity for AI to not just know answers but to ask novel questions that lead to discoveries:\n\n\"To create an Einstein in a data center, we don't just need a system that knows all the answers, but rather one that can ask questions nobody else has thought or dared to ask.\" ([03:21])\n\nLeCun agrees, asserting that current LLMs are fundamentally limited to retrieval-based tasks and cannot engage in the innovative questioning that drives scientific discovery. He elaborates on the multifaceted nature of problem-solving in humans, which involves asking the right questions, framing problems creatively, and applying diverse skills—all of which are areas where LLMs fall short.\n\nDiminishing Returns and the Future of AI Investment\nTimestamp: [11:49] - [24:19]"
+  },
+  {
+    "chunk_id": 3,
+    "source_file": "bigtech_ai_discoveries.txt.txt",
+    "source_type": "interview",
+    "text": "Diminishing Returns and the Future of AI Investment\nTimestamp: [11:49] - [24:19]\n\nThe conversation shifts to the economic and developmental aspects of AI. Alex points out the significant investments pouring into LLM-centric companies, questioning the sustainability given the diminishing returns:\n\n\"If that money is being invested into something that is at the point of diminishing returns, requiring a new paradigm to progress, that sounds like a real problem.\" ([11:49])\n\nLeCun acknowledges the issue, explaining that the vast amounts of data required to train LLMs are reaching practical limits:\n\n\"We've kind of run out of natural text data to train those LLMs... we need a new paradigm.\" ([12:22])"
+  },
+  {
+    "chunk_id": 4,
+    "source_file": "bigtech_ai_discoveries.txt.txt",
+    "source_type": "interview",
+    "text": "\"We've kind of run out of natural text data to train those LLMs... we need a new paradigm.\" ([12:22])\n\nHe argues that moving forward, the AI field must develop new architectures capable of understanding and interacting with the physical world, beyond mere data retrieval. This entails creating systems that can reason, plan, and learn from sensory inputs like video, akin to human cognitive processes.\n\nTimeline Mismatches and Potential AI Winter\nTimestamp: [29:50] - [34:13]\n\nAlex expresses concern over a potential mismatch between AI investment and the emergence of breakthrough technologies, drawing parallels to past AI winters. He questions whether the current investment surge, primarily focused on LLMs, might lead to a stagnation if new paradigms don't materialize swiftly enough.\n\nLeCun responds by emphasizing the gradual and collective nature of AI advancements:"
+  },
+  {
+    "chunk_id": 5,
+    "source_file": "bigtech_ai_discoveries.txt.txt",
+    "source_type": "interview",
+    "text": "LeCun responds by emphasizing the gradual and collective nature of AI advancements:\n\n\"It's not going to be a day before which there is no AGI, and after which we have AGI. This is not going to be an event.\" ([34:13])\n\nHe posits that the transition to more advanced AI systems will be a continuous process involving diverse research efforts globally, rather than a sudden breakthrough from a single entity. This collaborative approach, he suggests, mitigates the risk of an AI winter by ensuring sustained progress across multiple fronts.\n\nUnderstanding Physics and the World with AI\nTimestamp: [35:50] - [44:35]\n\nA significant portion of the discussion delves into the AI's comprehension of physical laws. Alex references a past experiment where ChatGPT incorrectly predicted the behavior of a falling paper, contrasting it with recent improvements in video generation AI systems like Sora."
+  },
+  {
+    "chunk_id": 6,
+    "source_file": "bigtech_ai_discoveries.txt.txt",
+    "source_type": "interview",
+    "text": "\"When you let go of the paper with your left hand, gravity will cause the left side of the paper to drop while the right side remains in place...\" ([35:50])\n\nLeCun explains that while AI can now generate more plausible physical simulations, this improvement doesn't equate to genuine understanding. He underscores that AI's ability to predict outcomes is still surface-level and relies heavily on data patterns rather than an intrinsic grasp of physical realities.\n\nIntroducing Joint Embedding Predictive Architecture (JEPA), LeCun outlines a new approach:\n\n\"Together, this is what JEPA is... it's not generative because the system is not trying to regenerate the part of the input. It's trying to generate a representation, an abstract representation of the input.\" ([43:06])\n\nJEPA focuses on abstracting and predicting representations rather than reconstructing raw data, enabling AI to understand and reason about the physical world more effectively."
+  },
+  {
+    "chunk_id": 7,
+    "source_file": "bigtech_ai_discoveries.txt.txt",
+    "source_type": "interview",
+    "text": "JEPA focuses on abstracting and predicting representations rather than reconstructing raw data, enabling AI to understand and reason about the physical world more effectively.\n\nOpen Source vs. Proprietary AI Development\nTimestamp: [55:00] - [59:50]\n\nAlex shifts the conversation to the impact of open-source initiatives like Deepsea on the AI landscape. He inquires whether open-source has begun to overtake proprietary models.\n\nLeCun responds affirmatively, highlighting the innovative speed and diversity of ideas within the open-source community:\n\n\"Progress is faster in the open source world... it's cheaper to run, more secure, more controllable.\" ([55:44])"
+  },
+  {
+    "chunk_id": 8,
+    "source_file": "bigtech_ai_discoveries.txt.txt",
+    "source_type": "interview",
+    "text": "\"Progress is faster in the open source world... it's cheaper to run, more secure, more controllable.\" ([55:44])\n\nHe cites examples of successful open-source contributions, such as the ResNet architecture from Beijing and the Llama model from Paris, illustrating that no single entity holds a monopoly on groundbreaking ideas. LeCun advocates for the global and collaborative nature of open-source development as a catalyst for rapid AI advancement.\n\nConclusion\nTimestamp: [59:50] - [60:08]\n\nAs the episode wraps up, Alex appreciates Yann's ability to cut through hype and provide grounded insights into the AI industry's trajectory. Yann emphasizes the necessity for diverse, collaborative research and cautions against expecting instant breakthroughs from current LLM approaches.\n\n\"If you think that there is some startup somewhere with five people who has discovered the secret of AGI... you are making a huge mistake.\" ([34:13])"
+  },
+  {
+    "chunk_id": 9,
+    "source_file": "bigtech_ai_discoveries.txt.txt",
+    "source_type": "interview",
+    "text": "\"If you think that there is some startup somewhere with five people who has discovered the secret of AGI... you are making a huge mistake.\" ([34:13])\n\nThe conversation leaves listeners with a nuanced understanding of where AI stands today, the challenges it faces in achieving true scientific discovery, and the promising avenues that lie ahead through innovative architectures like JEPA and the open-source movement."
+  }
+]

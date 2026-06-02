@@ -1,0 +1,74 @@
+[
+  {
+    "chunk_id": 0,
+    "source_file": "v_jepa_2.txt",
+    "source_type": "blog",
+    "text": "SOURCE: Meta AI Blog\nTITLE: V-JEPA 2: Self-supervised video models enable understanding, prediction and planning\nAUTHOR: Meta AI\nYEAR: 2025\nTYPE: Blog Post\nCATEGORY: Research Blog\nTOPICS: V-JEPA 2, World Models, Video Understanding, Planning, Robotics, Self-Supervised Learning, JEPA\nORGANIZATION: Meta AI\nLANGUAGE: English"
+  },
+  {
+    "chunk_id": 1,
+    "source_file": "v_jepa_2.txt",
+    "source_type": "blog",
+    "text": "========================================\nV-JEPA 2 is a 1.2 billion-parameter model that was built using Meta Joint Embedding Predictive Architecture (JEPA), which we first shared in 2022. Our previous work has shown that JEPA performs well for modalities like images and 3D point clouds. Building on V-JEPA, our first model trained on video that we released last year, V-JEPA 2 improves action prediction and world modeling capabilities that enable robots to interact with unfamiliar objects and environments to complete a task. We’re also sharing three new benchmarks to help the research community evaluate how well their existing models learn and reason about the world using video. By sharing this work, we aim to give researchers and developers access to the best models and benchmarks to help accelerate research and progress—ultimately leading to better and more capable AI systems that will help enhance people’s lives.\n\nWhat are world models?"
+  },
+  {
+    "chunk_id": 2,
+    "source_file": "v_jepa_2.txt",
+    "source_type": "blog",
+    "text": "What are world models?\n\n>>1.00<<\nWe all know that if you toss a tennis ball into the air, gravity will pull it back down. It would be surprising if it hovered, suddenly pivoted mid-air and went flying in a different direction, or spontaneously changed into an apple. That kind of physical intuition isn’t something adults obtain after years of education—young children develop this intuition by observing the world around them before they can even speak in full sentences."
+  },
+  {
+    "chunk_id": 3,
+    "source_file": "v_jepa_2.txt",
+    "source_type": "blog",
+    "text": "The ability to predict how the world will respond to our actions—or the actions of others—is something humans use all the time, especially when planning what actions to take and how to best navigate new situations. Consider all the ways this physical intuition shows up in our everyday lives. When we walk through an unfamiliar crowded area, we’re making moves toward our destination while also trying not to bump into people or obstacles along the path. When playing hockey, we skate to where the puck is going, not where it currently is. And when preparing a meal using a stove, we think about how much longer to leave the pot on the flame or whether to turn down the heat. Our internal model of the world provides us with this intuition and also acts as an internal simulator, allowing us to predict the outcome of a hypothetical action, so we can ultimately choose the best action based on what we believe will best achieve our goal."
+  },
+  {
+    "chunk_id": 4,
+    "source_file": "v_jepa_2.txt",
+    "source_type": "blog",
+    "text": "Before taking action, we use our world model to imagine the potential consequences. As we work toward building AI agents that can similarly think before they act, it’s important that they learn world models that enable the following capabilities:\n\nUnderstanding: A world model should be able to understand observations of the world, including things like recognizing objects, actions, and motions in a video.\nPredicting: A world model should be able to make predictions about how the world will evolve, and how the world will change if the agent takes an action.\nPlanning: Building on the ability to make predictions, a world model should be useful for planning sequences of actions that achieve a given goal.\nIntroducing V-JEPA 2"
+  },
+  {
+    "chunk_id": 5,
+    "source_file": "v_jepa_2.txt",
+    "source_type": "blog",
+    "text": ">>1.00<<\nOur long-term vision is that world models will enable AI agents to plan and reason in the physical world. As the next step towards this vision, we’re releasing V-JEPA 2, a world model trained primarily on video—a rich and readily available source of information about the world. By making V-JEPA 2 code and model checkpoints available for commercial and research applications, we hope to build a broad community around this research, driving progress toward our ultimate goal of developing world models that can transform the way AI interacts with the physical world.\n\nBuilt using a joint-embedding predictive architecture (JEPA), V-JEPA 2 has two main components:"
+  },
+  {
+    "chunk_id": 6,
+    "source_file": "v_jepa_2.txt",
+    "source_type": "blog",
+    "text": "Built using a joint-embedding predictive architecture (JEPA), V-JEPA 2 has two main components:\n\nAn encoder, which takes in raw video and outputs embeddings that capture useful semantic information about the state of the observed world.\nA predictor, which takes in a video embedding and additional context about what to predict and outputs predicted embeddings.\n>>1.00<<\nWe train V-JEPA 2 using self-supervised learning from video, which allows us to train on video without requiring additional human annotation. V-JEPA 2 training involves two stages: actionless pre-training, followed by additional action-conditioned training."
+  },
+  {
+    "chunk_id": 7,
+    "source_file": "v_jepa_2.txt",
+    "source_type": "blog",
+    "text": "In the first stage—pre-training—we use more than 1 million hours of video and 1 million images from diverse sources. This rich visual data helps the model learn a lot about how the world works, including how people interact with objects, how objects move in the physical world, and how objects interact with other objects. We find that the model already demonstrates key capabilities related to understanding and prediction after the pre-training stage. For example, by training a lightweight attentive read-out on top of the frozen encoder features, V-JEPA 2 achieves exceptional performance on the Something-Something v2 action recognition task, which relies on motion understanding. Similarly, by training an attentive read-out on top of the frozen encoder and predictor features, V-JEPA 2 sets a new state-of-the-art on the Epic-Kitchens-100 action anticipation task of predicting what action (comprised of a noun and a verb) will be performed 1 second into the future from egocentric video"
+  },
+  {
+    "chunk_id": 8,
+    "source_file": "v_jepa_2.txt",
+    "source_type": "blog",
+    "text": ". Finally, aligning V-JEPA 2 with a language model results in state-of-the-art performance on video question answering benchmarks such as Perception Test and TempCompass."
+  },
+  {
+    "chunk_id": 9,
+    "source_file": "v_jepa_2.txt",
+    "source_type": "blog",
+    "text": "After the actionless pre-training stage, the model can make predictions about how the world might evolve—however, these predictions don’t directly take into account specific actions that an agent would take. In the second stage of training, we focus on making the model more useful for planning by using robot data, which includes visual observations (video) and the control actions that the robot was executing. We incorporate this data into the JEPA training procedure by providing the action information to the predictor. After training on this additional data, the predictor learns to account for specific actions when making predictions and can then be used for control. We don’t need a lot of robot data for this second phase—in our technical report, we show that training with only 62 hours of robot data already results in a model that can be used for planning and control."
+  },
+  {
+    "chunk_id": 10,
+    "source_file": "v_jepa_2.txt",
+    "source_type": "blog",
+    "text": "We demonstrate how V-JEPA 2 can be used for zero-shot robot planning in new environments and involving objects not seen during training. Unlike other robot foundation models—which usually require that some training data come from the specific robot instance and environment where the model is deployed—we train the model on the open source DROID dataset and then deploy it directly on robots in our labs. We show that the V-JEPA 2 predictor can be used for foundational tasks like reaching, picking up an object, and placing it in a new location."
+  },
+  {
+    "chunk_id": 11,
+    "source_file": "v_jepa_2.txt",
+    "source_type": "blog",
+    "text": "For short-horizon tasks, such as picking or placing an object, we specify a goal in the form of an image. We use the V-JEPA 2 encoder to get embeddings of the current and goal states. Starting from its observed current state, the robot then plans by using the predictor to imagine the consequences of taking a collection of candidate actions and rating the candidates based on how close they get to the desired goal. At each time step, the robot re-plans and executes the top-rated next action toward that goal via model-predictive control. For longer horizon tasks, such as picking up an object and placing it in the right spot, we specify a series of visual subgoals that the robot tries to achieve in sequence, similar to visual imitation learning observed in humans. With these visual subgoals, V-JEPA 2 achieves success rates of 65% – 80% for pick-and-placing new objects in new and unseen environments."
+  }
+]

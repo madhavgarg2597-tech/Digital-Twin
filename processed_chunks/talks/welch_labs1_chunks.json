@@ -1,0 +1,266 @@
+[
+  {
+    "chunk_id": 0,
+    "source_file": "welch_labs1.txt",
+    "source_type": "talk",
+    "text": "SOURCE: Welch Labs\nTITLE: Yann LeCun's $1B Bet Against LLMs [Part 1]\nHOST: Welch Labs\nGUEST: Yann LeCun\nYEAR: 2026\nTYPE: Technical Explainer\nCATEGORY: World Models, JEPA\nTOPICS: JEPA, World Models, Self-Supervised Learning, Barlow Twins, VICReg, DINO, Autonomous Machine Intelligence\nLANGUAGE: English"
+  },
+  {
+    "chunk_id": 1,
+    "source_file": "welch_labs1.txt",
+    "source_type": "talk",
+    "text": "========================================\n0:00\nOkay, then let me make a controversial statement that again is going to get me a lot of friends in SQL. Um,\n0:06\nAI legend Yan Lun has raised a billion dollars to pursue an alternative approach to AI. Unlike large language\n0:14\nmodels, Lacun's approach is not rooted in language and is not generative. By\n0:20\ndesign, it does not spit out text, images or videos. Instead, Lacun has proposed Jeepa. Jeppa is not a single AI\n0:28\nmodel, but instead an alternative architecture or framework for training AI models. Many successful approaches in\n0:35\nAI and machine learning train models to predict some output Y given some input X. Large language models are given some\n0:42\ninput text X and trained to predict the text Y that comes next. Image classifier\n0:48\nmodels are given an input image X [music] and trained to predict the corresponding label Y. Jeepa does not\n0:54"
+  },
+  {
+    "chunk_id": 2,
+    "source_file": "welch_labs1.txt",
+    "source_type": "talk",
+    "text": "input text X and trained to predict the text Y that comes next. Image classifier\n0:48\nmodels are given an input image X [music] and trained to predict the corresponding label Y. Jeepa does not\n0:54\nwork like this. Instead, our inputs X and outputs Y are each passed into models known as encoders. These encoders\n1:02\nreturn a vector or matrix of numbers, often referred to as an embedding.\n1:07\nFrom here, a third model known as a predictor is trained to predict the embedding of Y given the embedding of X.\n1:15\nWhy might this be a better way to build AI systems? Do you think that Jeepa or world model based approaches, do you\n1:21\nthink they'll replace LLMs one day or are they kind of solving different problems? Initially they'll solve different\n1:27\nproblems. Eventually they're replaced LLM okay because you know LLMs are really good at\n1:33\nmanipulating language but basically nothing else. They're really good in domains where the\n1:39"
+  },
+  {
+    "chunk_id": 3,
+    "source_file": "welch_labs1.txt",
+    "source_type": "talk",
+    "text": "1:27\nproblems. Eventually they're replaced LLM okay because you know LLMs are really good at\n1:33\nmanipulating language but basically nothing else. They're really good in domains where the\n1:39\nlanguage itself [music] is the substrate of reasoning compared to the mainline generative\n1:45\nlanguage approach to AI. Jeepa lives on an alternative path of joint embedding\n1:50\narchitectures. Interestingly, Lacun played a significant role at the outset of both paths. In part one of this two-part\n1:58\nseries, we'll explore this alternative path to Jeepa. We'll dig into why Yan moved away from generative architectures\n2:05\njust as they were gaining traction in language and explore Yan's epiphany for a new solution to the representation\n2:11\ncollapse problem that plagued joint embedding architectures for years. Finally, we'll dig into the Jeepa\n2:17\narchitecture itself. In part two, we'll dive into JEPA implementations and see exactly how\n2:23\nthese models stack up against LLM driven approaches."
+  },
+  {
+    "chunk_id": 4,
+    "source_file": "welch_labs1.txt",
+    "source_type": "talk",
+    "text": "2:17\narchitecture itself. In part two, we'll dive into JEPA implementations and see exactly how\n2:23\nthese models stack up against LLM driven approaches.\nThe Problem with Deep Learning\n2:31\nYan Lun saw the revolution coming in the 1980s. While most of the AI field was\n2:37\nbusy building expert systems that were explicitly programmed instead of learned from data, Jan pioneered the\n2:43\nconvolutional neural network. 25 years later, when deep learning began its rise\n2:48\nto its now dominant position in AI, the breakthrough deep learning model AlexNet\n2:54\nturned out to be uncannily similar to Lacun's convolutional nets from the 1990s.\n3:00\nHowever, as deep learning continued to pick up steam through the 2010s, Lacun and other researchers became\n3:05\nincreasingly concerned by just how much this approach to AI depended on labeled training data. AlexNet was trained on\n3:13\nthe enormous and meticulously labeled imageet data set using supervised learning where AlexNet was trained to\n3:19"
+  },
+  {
+    "chunk_id": 5,
+    "source_file": "welch_labs1.txt",
+    "source_type": "talk",
+    "text": "3:13\nthe enormous and meticulously labeled imageet data set using supervised learning where AlexNet was trained to\n3:19\nmatch the labels assigned to each image by human annotators. In contrast, children are able to learn\n3:25\nvery general representations for concepts like dog with very few explicitly labeled examples.\n3:33\nAs manually labeled data became a bottleneck for supervised learning, interest grew in alternative approaches.\n3:40\nReinforcement learning, where models learn from interacting with their environments instead of from labeled data, experienced a many renaissance in\n3:47\nthe mid2010s, highlighted by Google DeepMind's breakthrough performance on Atari games\n3:52\nand the highly complex board game Go. Concurrently, Lacun and others explored\n3:58\nunsupervised methods that learn from data without labels, including a variant\n4:03\ncalled self-supervised learning, where the labels are taken from the data itself. Starting in 2015 or so, I\n4:10"
+  },
+  {
+    "chunk_id": 6,
+    "source_file": "welch_labs1.txt",
+    "source_type": "talk",
+    "text": "unsupervised methods that learn from data without labels, including a variant\n4:03\ncalled self-supervised learning, where the labels are taken from the data itself. Starting in 2015 or so, I\n4:10\nstarted showing a slide that has become a bit of a meme in the machine learning community where I said like, you know,\n4:15\nif it's the cake slide, right? So, if uh intelligence is a cake, the bulk of the\nIntelligence is a Cake\n4:20\ncake is self-s supervised learning, the icing on the cake, supervised learning, and the chair on the cake, reinforcement\n4:26\nlearning. At the time, people were kind of crazy about reinforcement learning. So I was trying to tell them like this is not never going to you know take us\n4:33\nto you know anywhere close to human or animal intelligence because it's too inefficient. Um and uh turns out the\n4:42\nsuccess of self-s supervised learning uh you know happened in in text and and\n4:49\nlanguage much faster than it did in sort of more uh you know natural uh\n4:54"
+  },
+  {
+    "chunk_id": 7,
+    "source_file": "welch_labs1.txt",
+    "source_type": "talk",
+    "text": "4:42\nsuccess of self-s supervised learning uh you know happened in in text and and\n4:49\nlanguage much faster than it did in sort of more uh you know natural uh\n4:54\nmodalities like uh like vision. Here Jan is referring to the success of next token prediction for training large\n5:01\nlanguage models. OpenAI was founded in 2015 and initially focused their efforts\n5:06\non reinforcement learning creating OpenAI Gym and Universe and showing very\n5:11\nimpressive performance on complex video games. While much of the company was focused on reinforcement learning, Ilia\nThe Rise of Generative AI\n5:19\nSutskever, Alec Radford and others became interested in a new neural network architecture from Google, the\n5:24\ntransformer. Initially designed for language translation, while experimenting, Radford tried an\n5:31\ninteresting modification. Instead of having the transformer translate from a block of text in one language to a block\n5:37"
+  },
+  {
+    "chunk_id": 8,
+    "source_file": "welch_labs1.txt",
+    "source_type": "talk",
+    "text": "5:31\ninteresting modification. Instead of having the transformer translate from a block of text in one language to a block\n5:37\nof text in another language, he switched to a simpler self-supervised approach where training text is broken into\n5:43\nsequences and the transformer is given all but the last little piece of text known as a token in each sequence and\n5:51\ntrained to predict what this final token will be. Ratford and his OpenAI colleagues\n5:56\ntrained their transformer on a fairly large internal OpenAI data set of 7,000 books. Note that we now call this phase\n6:03\npre-training and then further train their model using standard supervised learning from human generated labels on\n6:10\nspecific language tasks. Their two-stage training approach worked well, setting new state-of-the-art\n6:16\nresults on nine language benchmarks, including tasks like high school level reading comprehension questions,\n6:23"
+  },
+  {
+    "chunk_id": 9,
+    "source_file": "welch_labs1.txt",
+    "source_type": "talk",
+    "text": "6:16\nresults on nine language benchmarks, including tasks like high school level reading comprehension questions,\n6:23\noutperforming architectures and methods that were individually designed and trained for each individual task.\n6:29\nRadford's model is now known as generative pre-trained transformer 1 or GPT1.\n6:36\nGPT1 didn't receive much public attention at the time, but was a huge unlock, breaking models free from their\n6:42\ndependence on humanlabeled data and opening up unprecedented levels of scale.\n6:48\nOther researchers at OpenAI quickly grasp the significance of Radford's results and the team went allin on this\n6:54\napproach, aggressively scaling up to GPT2 in 2019, GPT3 in 2020, and Chat GPT\n7:02\nin 2022. In 2012, AlexNet was trained on around a\n7:07\nmillion examples. In 2020, GPT3 was trained on hundreds of billions of\n7:12\nexamples. And interestingly, the new training paradigm that emerged exactly matched Yon Lacun's predictions from a\n7:19"
+  },
+  {
+    "chunk_id": 10,
+    "source_file": "welch_labs1.txt",
+    "source_type": "talk",
+    "text": "million examples. In 2020, GPT3 was trained on hundreds of billions of\n7:12\nexamples. And interestingly, the new training paradigm that emerged exactly matched Yon Lacun's predictions from a\n7:19\nfew years earlier. An extensive self-supervised pre-training phase followed by supervised learning and\n7:25\nfinally reinforcement learning to shape the raw next token predictor model into a helpful AI assistant.\n7:32\nHowever, while these self-supervised generative approaches clearly broke through in language, the picture was\n7:38\nmuch fuzzier for image and video data. But I I I kept working on vision and\n7:44\nthen initially uh the the uh idea was to\n7:49\nuse um so to train a system to predict what happens in video but to use uh\n7:54\ngenerative architectures. Um so basically train at a pixel level what's going to happen in the video. Years\nBlurry Images\n8:01\nbefore the success of GPT1, researchers including Lacun had tried to apply the same self-supervised generative approach\n8:08"
+  },
+  {
+    "chunk_id": 11,
+    "source_file": "welch_labs1.txt",
+    "source_type": "talk",
+    "text": "Blurry Images\n8:01\nbefore the success of GPT1, researchers including Lacun had tried to apply the same self-supervised generative approach\n8:08\nto video. In the most straightforward implementation, we configure our neural network to take in the RGB pixel values\n8:15\nfrom a sequence of video frames and then predict the pixel values in the next frame just as the GPT models are trained\n8:22\nto predict the next token in language. However, when we use these models to predict the next frame, the results are\n8:28\nblurry. And this blurriness compounds dramatically in longer horizon predictions. Large language models are\n8:35\nauto reggressive. When chat GPT answers a question, it generates one token at a time. At each step, feeding its latest\n8:42\ngenerated token back into its input to create the next output. If we try this auto reggressive approach with a next\n8:49\nframe video prediction model, the results quickly devolve into blurry nothingness.\n. Now, back to Jeepa.\nBut why so Blurry?\n11:17"
+  },
+  {
+    "chunk_id": 12,
+    "source_file": "welch_labs1.txt",
+    "source_type": "talk",
+    "text": "8:49\nframe video prediction model, the results quickly devolve into blurry nothingness.\n. Now, back to Jeepa.\nBut why so Blurry?\n11:17\nNow, the blurry frames produced by our generative video prediction approach are not some huge mystery. Language is\n11:23\ncomplex and unpredictable, but it's nothing compared to video. Language models use fixedsiz\n11:30\nvocabularies. GPT2 has 50,257 discrete outputs, one for each token\n11:36\nthat the model could say next. This complete enumeration approach is hopeless in video. For full HD video, in\n11:44\nthe most general case, each pixel can take on 256 discrete values. And we have\n11:50\n1920 * 1080 * 3 color pixels. Meaning there are something like 10 to the power\n11:56\nof 15 million possible next video frames dwarfing the number of atoms in the\n12:01\nobservable universe. So there's no way our video prediction model can have a discrete output for each possible next\n12:08"
+  },
+  {
+    "chunk_id": 13,
+    "source_file": "welch_labs1.txt",
+    "source_type": "talk",
+    "text": "12:01\nobservable universe. So there's no way our video prediction model can have a discrete output for each possible next\n12:08\nvideo frame as our language model has a discrete output for each next possible token.\n12:14\nInstead, many generative video approaches of this era had the network directly output pixel intensity values.\n12:22\nThe big challenge with this approach is how the model learns to handle uncertainty.\n12:27\nIf we compare an LLM learning to complete the sentence, the ball bounced to the and a neural network predicting\n12:33\nthe next frame of a video of a ball actually bouncing, we can see exactly what goes wrong. In the LLM training\n12:40\ncase, the model will see various examples in its training set of the ball bouncing left and right. And since the\n12:47\nmodel has separate outputs for each of these tokens, it can essentially independently update these\n12:52\nprobabilities. Our video model doesn't have it so easy. If our data set includes videos of the\n12:59"
+  },
+  {
+    "chunk_id": 14,
+    "source_file": "welch_labs1.txt",
+    "source_type": "talk",
+    "text": "12:52\nprobabilities. Our video model doesn't have it so easy. If our data set includes videos of the\n12:59\nball starting down the same path and then bouncing in various directions, since our model is forced to directly\n13:05\npredict a single output frame for a given input, the best it can do in the face of this ambiguity is to predict the\n13:12\naverage of these outcomes. When we average the pixel values of our videos, we end up with a blurry, washed\n13:18\nout mess. Now, this is only the most naive approach, and there have been many, many\n13:24\ninteresting video and image prediction strategies tried with various degrees of success over the last couple decades.\nDo our models need to be generative?\n13:31\nHowever, the challenges that naturally arise led Lun and other researchers to ask an interesting question. Do our\n13:38\nmodels really need to be generative? In our GPT example, during the crucial\n13:43\npre-training phase, it really doesn't matter that our model is generative.\n13:48"
+  },
+  {
+    "chunk_id": 15,
+    "source_file": "welch_labs1.txt",
+    "source_type": "talk",
+    "text": "13:38\nmodels really need to be generative? In our GPT example, during the crucial\n13:43\npre-training phase, it really doesn't matter that our model is generative.\n13:48\nAfter pre-training on next token prediction, we're left with a model that's essentially a really good\n13:53\nautocomplete. But this is not the point. What actually matters are the internal representations\n14:00\nand features that the model learns to solve the next token prediction task.\n14:05\nThese learned internal representations are what allows pre-trained models to be quickly adapted into powerful AI\n14:12\nassistance. Next token prediction on language is a proxy for intelligence that has turned\n14:18\nout to work shockingly well. But are there other signals and methods\n14:24\nthat we can use to learn these powerful internal representations that we need to build intelligent systems?\n14:30\nSimultaneously we started realizing in the you know around\n14:36"
+  },
+  {
+    "chunk_id": 16,
+    "source_file": "welch_labs1.txt",
+    "source_type": "talk",
+    "text": "14:24\nthat we can use to learn these powerful internal representations that we need to build intelligent systems?\n14:30\nSimultaneously we started realizing in the you know around\n14:36\n2017 18 that uh the the best system to learn representations of images are\n14:43\nsystems that do not are not generative. They don't reconstruct they they you\n14:48\nknow you you you get an image and you run it to an encoder and then you try to\n14:53\nkind of coers this encoder to extract as much information as possible with certain properties. So for example, you\n15:00\ntake two images of the same scene or you take an image and you corrupt it or transform it in some ways. You run them\n15:06\nboth through encoders and you tell the system the representation whatever you extract to really be the same for those\n15:12\ntwo images because they semantically represent the same thing. Um and I've\nSiamese Networks\n15:17"
+  },
+  {
+    "chunk_id": 17,
+    "source_file": "welch_labs1.txt",
+    "source_type": "talk",
+    "text": "15:12\ntwo images because they semantically represent the same thing. Um and I've\nSiamese Networks\n15:17\nbeen working on things like this since the '9s. So this is not a new idea. This this idea joint embedding we used to\n15:22\ncall this Siamese neural net. The method Yan is referring to here, Siamese networks, was created by Yan and his\n15:29\ncollaborators at Bell Labs in the early 1990s when developing systems to detect fraudulent signatures.\n15:37\nThe system worked by passing a pair of signature images into two copies of the same neural network. The network copies\n15:44\nwere not trained to generate any kind of data. Instead, they output vectors of numbers, often referred to as embedding\n15:50\nvectors. These network copies were trained on two types of examples.\n15:55\nPositive examples that contain a reference signature and a nonfraudulent signature. So these are by the same\n16:00\nperson. And negative examples that contain a reference signature and a fraudulent signature.\n16:07"
+  },
+  {
+    "chunk_id": 18,
+    "source_file": "welch_labs1.txt",
+    "source_type": "talk",
+    "text": "16:00\nperson. And negative examples that contain a reference signature and a fraudulent signature.\n16:07\nFor fraudulent examples, the network copies are trained to produce embedding vectors that are maximally different.\n16:13\nAnd for positive examples, produce embedding vectors that are maximally similar.\n16:18\nWhen a new signature comes along, we can pass it into our network to comput an embedding vector and compare it to the\n16:24\nembedding vector produced from our reference signature. If the resulting embedding vectors are not similar\n16:30\nenough, the signature is detected as fraudulent. By jointly embedding our signatures, our\n16:36\nSiamese network learns a very useful internal representation of the images of our signatures, notably without learning\n16:42\nto predict or generate any actual signature images. As a GPT-based approach would\n16:49\njoint embeddings offer a potentially viable solution to our blurry video problem. As Yan explains,\n16:55"
+  },
+  {
+    "chunk_id": 19,
+    "source_file": "welch_labs1.txt",
+    "source_type": "talk",
+    "text": "16:42\nto predict or generate any actual signature images. As a GPT-based approach would\n16:49\njoint embeddings offer a potentially viable solution to our blurry video problem. As Yan explains,\n16:55\nyou you get an image and you run it to an encoder and then you try to kind of\n17:00\ncoers this encoder to extract as much information as possible with certain properties. So for example, you take two\n17:07\nimages of the same scene or you take an image and you corrupt it or transform it in some ways. You run them both through\n17:13\nencoders and you tell the system the representation whatever you extract should really be the same for those two\n17:18\nimages because they semantically represent the same thing. So the idea here is that we sidestep the blurry\n17:24\nvideo problem we saw with generative models by using a joint embedding architecture to map copies of images or\n17:31\nvideos with one or both corrupted or transformed to similar embedding vectors. This trained model will ideally\n17:39"
+  },
+  {
+    "chunk_id": 20,
+    "source_file": "welch_labs1.txt",
+    "source_type": "talk",
+    "text": "17:31\nvideos with one or both corrupted or transformed to similar embedding vectors. This trained model will ideally\n17:39\nlearn a useful internal representation of images or video that we can repurpose for other tasks just as GPT models learn\n17:47\ninternal representations during pre-training that can be adapted into AI assistant behaviors.\nRepresentation Collapse\n17:54\nHowever, this joint embedding strategy has a huge problem. Since we're training our network to make the embeddings of\n18:00\nour original and corrupted images or videos as similar as possible, the network can find a trivial solution\n18:07\nwhere it simply returns the same embedding vector for any input that we pass in. If our network learns to\n18:13\noutput, for example, a vector of all ones for any input, then the network will return all ones for a corrupted and\n18:20\nnon-corrupted view of the same image, maximizing the resulting similarity, but without actually learning anything\n18:26"
+  },
+  {
+    "chunk_id": 21,
+    "source_file": "welch_labs1.txt",
+    "source_type": "talk",
+    "text": "18:20\nnon-corrupted view of the same image, maximizing the resulting similarity, but without actually learning anything\n18:26\nuseful. This problem is known as representation collapse.\n18:31\nIn Lacun's original Siamese network approach, the team used what's now known as contrastive learning to avoid\n18:38\nrepresentation collapse, giving the network both positive and negative examples.\n18:44\nIt turns out we can apply the same contrastive approach to images and video, training our network to output\n18:50\nsimilar embeddings for views of the same underlying images or videos and dissimilar embeddings for different\n18:56\nimages or video. These contrastive methods have been successfully implemented on images and videos, but\n19:02\ncan run into issues when they're scaled up, requiring large amounts of computation and many negative examples\n19:08\nto learn meaningful representations. and Lacun has argued that in the worst case,\n19:13"
+  },
+  {
+    "chunk_id": 22,
+    "source_file": "welch_labs1.txt",
+    "source_type": "talk",
+    "text": "19:08\nto learn meaningful representations. and Lacun has argued that in the worst case,\n19:13\nthe number of contrastive samples may grow exponentially with the dimension of the representation.\n19:19\nBy the end of the 2010s, it was clear to Lun and others that using generative models to fully reconstruct images and\n19:26\nvideo was not a good strategy for self-supervised learning. But there wasn't a straightforward solution to the\n19:32\nrepresentation collapse problem that would allow joint embedding architectures to learn the same level of\n19:37\npowerful and general internal representations that large language models were enjoying.\n19:43\nAnd so it was pretty clear that reconstruction was a bad idea for uh signals like like images and\n19:50\na fortory for video. And I had a bit of an epiphany because uh\nYann’s Epiphany & Barlow Twins\n19:57\nthe uh the the methods that we were using to train those joint emitting architectures were kind of hacks a\n20:04"
+  },
+  {
+    "chunk_id": 23,
+    "source_file": "welch_labs1.txt",
+    "source_type": "talk",
+    "text": "Yann’s Epiphany & Barlow Twins\n19:57\nthe uh the the methods that we were using to train those joint emitting architectures were kind of hacks a\n20:04\nlittle bit until um I did some work with\n20:09\na couple postocs at at Meta particular guy called Stefan Deni who uh came up\n20:16\nwith a technique called Ballot twin. So it it's based on an old idea in uh in\n20:21\ncomputational noise science in machine learning that Jeffington also played on with similar ideas which is that you you\n20:27\nshould have time to have some measure of information content and try to maximize that and there's some real world work by\n20:35\nuh by Barlo about is a famous computational neuroscientist and right\n20:40\ntheoretical neuroscientist here Jan is referencing the work of Horus Barlo who hypothesized in 1961 one\n20:48\nthat the neurons in animal and human vision systems operate by reducing redundant information between neurons.\n20:55\nStefan Deni a postto lacun was working with in 2020 was familiar with Barlo's"
+  },
+  {
+    "chunk_id": 24,
+    "source_file": "welch_labs1.txt",
+    "source_type": "talk",
+    "text": "that the neurons in animal and human vision systems operate by reducing redundant information between neurons.\n20:55\nStefan Deni a postto lacun was working with in 2020 was familiar with Barlo's\n21:01\nwork and proposed that one way to avoid representation collapse could be to apply Barlo's idea to the outputs of\n21:08\ntheir networks. In the joint embedding architectures we've been considering, our embedding\n21:13\nvectors are produced by a final layer of artificial neurons in our embedding networks. So if our embedding vectors\n21:19\nare of length 128, then the output layer of each of our networks contains 128\n21:25\nneurons. If we pass in a batch of various images into each of our networks and plot the\n21:31\noutput activation of the first neuron as we step through our images, we can see that this neuron fires strongly on this\n21:38\nfirst picture of a dog, not so much on this cat picture, and so on.\n21:43"
+  },
+  {
+    "chunk_id": 25,
+    "source_file": "welch_labs1.txt",
+    "source_type": "talk",
+    "text": "output activation of the first neuron as we step through our images, we can see that this neuron fires strongly on this\n21:38\nfirst picture of a dog, not so much on this cat picture, and so on.\n21:43\nFollowing our joint embedding approach, our network takes in a distorted view of the same batch of images.\n21:50\nThe whole point of our joint embedding architecture is to make the resulting embeddings of the same underlying images\n21:55\nor videos similar. So we want the output of our first neuron in our second network to be similar to the output of\n22:02\nour first neuron in our first network. In a standard joint embedding architecture, we would simply measure\n22:08\nand maximize the similarity between these two vectors. However, as we've seen, this approach is\n22:14\nsusceptible to representation collapse. With the network simply learning to output the same values for any input\n22:20\nimage. But now applying Barllo's hypothesis as proposed by Stefan Deni, we should\n22:27"
+  },
+  {
+    "chunk_id": 26,
+    "source_file": "welch_labs1.txt",
+    "source_type": "talk",
+    "text": "22:20\nimage. But now applying Barllo's hypothesis as proposed by Stefan Deni, we should\n22:27\nreduce the redundancy between the outputs of different neurons. We have a bit of a choice to make here.\n22:33\nWe could compare the output of the first neuron in our first network to the output of our second neuron in our first\n22:38\nnetwork or to the output of the second neuron in our second network. The team chose to compare to the output of the\n22:44\nsecond network. As we'll see, this results in a simpler implementation and the team further notes in the appendex\n22:50\nof their paper that in practice they didn't see much difference between these alternatives.\n22:55\nHere's the output of the second neuron in our second model. To measure the redundancy between neuron outputs, the\n23:02\nteam computed the crossorrelation between these output vectors. This computation consists of scaling each\n23:09\nvector and taking the dotproduct resulting in a single number, the correlation or more precisely the"
+  },
+  {
+    "chunk_id": 27,
+    "source_file": "welch_labs1.txt",
+    "source_type": "talk",
+    "text": "23:09\nvector and taking the dotproduct resulting in a single number, the correlation or more precisely the\n23:16\nPearson correlation coefficient between our vectors. To reduce the redundancy between our neurons as proposed by\n23:22\nBarlo, we want this correlation to be close to zero. If we arrange the neuron\n23:28\noutputs of our first encoder vertically and the outputs of our second encoder horizontally, we can compute and place\n23:35\nthe correlations between all pairs of neurons into a single matrix. This crossorrelation matrix has one row for\n23:42\neach output neuron in our first encoder and one column for each output neuron in our second encoder. The elements along\n23:49\nthe diagonal capture the correlations between corresponding neurons. Since the whole idea here of this joint\n23:55\nembedding architecture is to produce similar outputs for distorted versions of the same image, we want the\n24:01"
+  },
+  {
+    "chunk_id": 28,
+    "source_file": "welch_labs1.txt",
+    "source_type": "talk",
+    "text": "23:55\nembedding architecture is to produce similar outputs for distorted versions of the same image, we want the\n24:01\ncorresponding neurons in our two encoders to have high correlations. Alternatively, all of the off diagonal\n24:08\nentries in our crossorrelation matrix correspond to different neurons in our two encoders.\n24:14\nAnd following Barlo's hypothesis, we want to reduce the redundancy between these neurons. So we want these\n24:20\ncorrelations to be zero. So ideally our crossorrelation matrix looks like the\n24:26\nidentity matrix. Deni lacun and their collaborators designed a new loss function for their\n24:32\njoint embedding architecture that measured the deviation of their crossorrelation matrix from the identity\n24:38\nmatrix. Their new method which they called barlo twins worked surprisingly well avoiding\n24:45\nrepresentation collapse while learning a powerful internal representation of the images that it was trained on.\n24:52"
+  },
+  {
+    "chunk_id": 29,
+    "source_file": "welch_labs1.txt",
+    "source_type": "talk",
+    "text": "24:45\nrepresentation collapse while learning a powerful internal representation of the images that it was trained on.\n24:52\nThe team used a few different methods to measure the quality of these internal representations.\n24:58\nEarlier, we saw how by using self-supervised pre-training, GPT1 was able to outperform purely supervised\n25:05\nmodels that had been adapted to specific language tasks. For vision tasks, one of the most\n25:11\nimportant benchmarks at the time was accuracy on the imageet data set. This\n25:16\nis the same image classification data set that the AlexNet model had shown breakthrough performance on back in\n25:22\n2012. The original AlexNet paper achieved an accuracy of 59.3% on the\n25:27\nimagenet validation set. To compare the self-supervised Barlo twins approach to\n25:33\nfully supervised models like AlexNet, the team used a common approach known as a linear probe where a single layer of\n25:41\nneurons are tacked onto the output of the Barllo twins trained encoder model"
+  },
+  {
+    "chunk_id": 30,
+    "source_file": "welch_labs1.txt",
+    "source_type": "talk",
+    "text": "25:41\nneurons are tacked onto the output of the Barllo twins trained encoder model\n25:46\nand trained using supervised learning to classify the imageet data set. Importantly, the main encoder model is\n25:53\nfrozen during this training process. So the simple linear probe is effectively adapting the Barlo twins\n26:00\nencoders learned representation to solve the imageet classification task.\n26:05\nImpressively, the frozen Barlo twins encoder with a linear probe achieved an imageet accuracy of 73.2%.\n26:13\nOutperforming the original fully supervised AlexNet model by over 10 percentage points.\n26:19\nHowever, in the nine years from the AlexNet paper in 2012 to the Barlo twins paper in 2021,\n26:26\nfully supervised approaches had made significant improvements over AlexNet. In 2020, a team at Google applied the\n26:33\ntransformer architecture to image classification, achieving a new state-of-the-art imageet\n26:38\naccuracy of 88.6%. So by 2021, thanks to the Barlo twins\n26:45"
+  },
+  {
+    "chunk_id": 31,
+    "source_file": "welch_labs1.txt",
+    "source_type": "talk",
+    "text": "26:33\ntransformer architecture to image classification, achieving a new state-of-the-art imageet\n26:38\naccuracy of 88.6%. So by 2021, thanks to the Barlo twins\n26:45\nepiphany and other joint embedding approaches, self-supervised learning was advancing rapidly for vision tasks, but\n26:52\nwas still inferior to fully supervised methods. The general and clearly superior self-supervised generative\n26:59\npre-training methods in language that were fueling the rapid advancement of LLMs were still out of reach for image\n27:06\nand video applications. And so it became clear that this really was the the right\n27:12\nway to go. So we kind of uh after that published another version a simplified version basically of battle twins called\n27:19\nvicrag which turned out to be quite good. uh and then simultaneously another group some of our colleagues at fair\nDINO\n27:25\nparis were working on uh uh similar methods which eventually came to be\n27:31"
+  },
+  {
+    "chunk_id": 32,
+    "source_file": "welch_labs1.txt",
+    "source_type": "talk",
+    "text": "DINO\n27:25\nparis were working on uh uh similar methods which eventually came to be\n27:31\nknown as dino uh dino v1 v2 v3 now have a new version which is not called dino\n27:38\nanymore uh and and this is also a jetting uh technique so so it's really\n27:44\nclear john embedding was better for represent learning you\n27:49\nknow right self-supervised learning to to represent images. The Dino V3 paper released in August\n27:56\n2025 marked an important turning point achieving a very near state-of-the-art\n28:02\nimage at accuracy of 88.4% using a joint embedding architecture.\n28:08\nAs the authors say in their paper, all in all, this is the first time that a self-supervised model has reached\n28:15\ncomparable results to weekly and supervised models on image classification.\n28:20\nThe quality of representations that Dino V3 is able to learn without [music] access to any human generated labels is\n28:27"
+  },
+  {
+    "chunk_id": 33,
+    "source_file": "welch_labs1.txt",
+    "source_type": "talk",
+    "text": "28:20\nThe quality of representations that Dino V3 is able to learn without [music] access to any human generated labels is\n28:27\nastounding. Dino outputs an embedding vector for each patch of image that it analyzes. If I take this image of myself\n28:35\nand take Dino's embedding vector from this image patch on my hand and compare this embedding vector to the rest of the\n28:41\npatches in the image, visualizing how similar each patch is to the hand patch using a color map. [music] Dino does a\n28:48\nremarkably good job segmenting my hand from the background. [clears throat] Here's the same approach applied to a\n28:54\nball, a cat, and a book. Following the success of Barlo twins\nJEPA & World Models\n29:00\nVicreg and Dinov1, in 2022, Lun brought these and many other threads together\n29:06\ninto a 60-page position paper called a path towards autonomous machine intelligence. Unlike the great majority\n29:13"
+  },
+  {
+    "chunk_id": 34,
+    "source_file": "welch_labs1.txt",
+    "source_type": "talk",
+    "text": "29:06\ninto a 60-page position paper called a path towards autonomous machine intelligence. Unlike the great majority\n29:13\nof Lun's papers [music] where he works on specific and technical pieces of machine learning theory or practice, a\n29:20\npath towards autonomous machine intelligence takes a holistic first principles approach to how we should\n29:26\nbuild intelligent machines. Lun begins by arguing that our current approaches to AI are nowhere near the capabilities\n29:33\nof human learning, giving the example of a teenager that can learn to drive a car in around 20 hours of practice. How is\n29:40\nit that we have those millions of hours of training data where we have we can train kind of level two system with it\n29:47\nwhich is what Tesla is doing basically. Yeah. Um but nowhere near level three, four, five.\n29:53\nOkay. Uh yet a 17-year-old can learn to drive in a few hours of practice. Like how does that happen, right? Shouldn't\n30:00"
+  },
+  {
+    "chunk_id": 35,
+    "source_file": "welch_labs1.txt",
+    "source_type": "talk",
+    "text": "29:53\nOkay. Uh yet a 17-year-old can learn to drive in a few hours of practice. Like how does that happen, right? Shouldn't\n30:00\nwe figure out what the what's the secret there? And my guess about it is the secret is\n30:05\nrole models. Lacun's billion-dollar bet is that the missing piece of modern AI is world models. Models that make\n30:13\npredictions about the physical world. As he says in his 2022 position paper,\n30:19\ncommon sense can be seen as a collection of models of the world that can tell an agent what is likely, what is plausible,\n30:25\nand what is impossible. Using such world models, animals can learn new skills\n30:31\nwith very few trials. They can predict the consequences of their actions. They\n30:36\ncan reason, plan, explore, and imagine new solutions to problems. Lun goes on\n30:41\nto argue that joint embedding architectures offer the right foundation to build world models on top of.\n30:48\nSo, JPA means joint embedding predictive architecture and it's you you take an"
+  },
+  {
+    "chunk_id": 36,
+    "source_file": "welch_labs1.txt",
+    "source_type": "talk",
+    "text": "30:41\nto argue that joint embedding architectures offer the right foundation to build world models on top of.\n30:48\nSo, JPA means joint embedding predictive architecture and it's you you take an\n30:53\nobservation in the world and then the next observation in the world. Uh you run them through encoders. So this is\n30:59\nlike a joint embedding type architecture and then you have a predictor that tries to predict that the state at time t plus\n31:04\none from the state at time t and you might condition this on an action and now you have a world model as a concrete example instead of using a\n31:12\ngenerative architecture to predict the pixel values in the next frame of video. We can map the video and next frame to\n31:19\nembeddings and then train a predictor model to predict the embedding of the next frame given the embedding of the\n31:25\nvideo. In this implementation, the JEPA architecture frees the model of the intractable task of predicting every\n31:33"
+  },
+  {
+    "chunk_id": 37,
+    "source_file": "welch_labs1.txt",
+    "source_type": "talk",
+    "text": "31:25\nvideo. In this implementation, the JEPA architecture frees the model of the intractable task of predicting every\n31:33\npixel in the next frame of video and theoretically allows the predictor to focus on predicting only the salient\n31:39\nfeatures of the scene that make it through the encoder. Jan gives a nice example here. If you train a geology\n31:46\nmodel, you know, to predict what's going to happen in a dash cam video, uh, it will spend most of its resources\n31:52\npredicting the random motion of the leaves on the trees that bord bordering the road and and those are things that\n31:58\nare essentially not predictable, but they have a lot of pixels, you know, that move around. As Jan mentioned earlier, we can take\n32:05\nJeepo one step further by conditioning on actions. In the VJEPA 2 paper, which\n32:10\nwe'll dig into in part two, the team conditions a JEPA model on the action signals sent to a robot arm. So, the\n32:18"
+  },
+  {
+    "chunk_id": 38,
+    "source_file": "welch_labs1.txt",
+    "source_type": "talk",
+    "text": "32:10\nwe'll dig into in part two, the team conditions a JEPA model on the action signals sent to a robot arm. So, the\n32:18\nJEPA model sees a sequence of images of the robot's arm and environment and then is trained to predict the embedding of\n32:24\nthe next video frame, but is also given the control signals that are sent to the robot arm. This allows the predictor to\n32:31\nlearn to predict how various control signals will change the robot arm's position in the embedded image.\n32:38\nThis learned world model can then be used for robot planning and control. Given an image of some goal state, for\n32:45\nexample, moving a cup off of a platform, this image is passed into the next frame encoder, resulting in an embedding of\n32:52\nthe goal state of the robot. From here, a controls algorithm can be used to explore the world model's predictions\n32:59\ngiven various hypothetical actions and find a set of actions that will lead the model's predicted future state to match\n33:06"
+  },
+  {
+    "chunk_id": 39,
+    "source_file": "welch_labs1.txt",
+    "source_type": "talk",
+    "text": "32:59\ngiven various hypothetical actions and find a set of actions that will lead the model's predicted future state to match\n33:06\nits goal state. As Jan says, this is really a new twist on an old idea.\n33:11\nYou build a model that gives you the state of the world at time t plus one as a function of the state of the world at time t and an action you imagine taking\n33:18\nor intervention or control, right? And then if you have this you can uh predict\n33:24\nthe outcome of a sequence of actions and you can by optimization you can figure out an optimal sequence of actions to\n33:30\narrive at a particular um outcome. Right? This is classical optimal control. This is you know this is going\n33:36\nback to the late 50s in the Soviet Union early 60s in the in the west.\n33:43\nVery classical stuff. Yeah. What is not classical is you learn the model. You use machine learning to learn\n33:49\nthe model. Right. Yeah, what is even less classical is you learn a representation of the input that\n33:56"
+  },
+  {
+    "chunk_id": 40,
+    "source_file": "welch_labs1.txt",
+    "source_type": "talk",
+    "text": "33:49\nthe model. Right. Yeah, what is even less classical is you learn a representation of the input that\n33:56\ncomputes a state an abstract state representation and you learn the you\n34:02\nknow the the model in that uh in that state and that's JPA\nBut is JEPA good?\n34:09\nbut will Jeepa or other world model based approaches really overtake large language models since lacun first\n34:16\nproposed Jeppa in 2022 the architecture has been applied by various teams to a\n34:21\nwide range of problems. How exactly do these models stack up? In\n34:27\npart two, we'll dive deeper into VJeppa 2 to get a sense for what's really happening inside the models embedding\n34:33\nspace and see how VJA 2 fares as a robotics control algorithm against\n34:38\nrapidly advancing VLA approaches. We'll also explore VLJA which solves\n34:44\nmany of the same vision language problems we solve today with multimodal LLMs but in a very different way and\n34:51"
+  },
+  {
+    "chunk_id": 41,
+    "source_file": "welch_labs1.txt",
+    "source_type": "talk",
+    "text": "34:38\nrapidly advancing VLA approaches. We'll also explore VLJA which solves\n34:44\nmany of the same vision language problems we solve today with multimodal LLMs but in a very different way and\n34:51\nwith impressive results. Finally, we'll spend some time on an implementation of Jeepa called layworld model. Layworld\n34:58\nmodel gives perhaps the most complete albeit early picture of what Jeepa based systems can do. Until next time, I'll\n35:05\nleave you with Yan's take. Okay, then let me make a controversial statement that again is going to get me a lot of\n35:11\nfriends in Silicon Valley. Um, I do not understand how you can even think of\n35:17\nbuilding an agentic system without a agentic system having the ability of\n35:24\npredicting the consequences of its actions. Okay? And a VA doesn't doesn't do that.\n35:30\nSure. Right. Airlines do not have world models. They cannot predict the consequences of their actions beforehand. they just take the action\n35:36"
+  },
+  {
+    "chunk_id": 42,
+    "source_file": "welch_labs1.txt",
+    "source_type": "talk",
+    "text": "35:30\nSure. Right. Airlines do not have world models. They cannot predict the consequences of their actions beforehand. they just take the action\n35:36\nand then deluj as uh you know as some famous\n35:43\nFrench kings said. So uh if you really want to build reliable agentic systems,\n35:50\nthey absolutely have to be able to predict the consequences of their actions so that they can plan a sequence\n35:55\nof actions to do something first of all to uh fulfill the task that they are\n36:01\nbeing asked to fulfill but also uh perhaps to you know guarantee some safety guard rails. Sure.\n36:07\nRight. And the inference process now becomes a search as opposed to just an autogressive prediction.\n36:13\nRight. Uh, so that's a world model. That the whole idea of a world model.\nWelch Labs Book\n36:19\nIf you enjoyed this video, check out the Welch Labs illustrated guide to AI. Its\n36:25\ncover produces highly consistent Dino representations, so you know it has to be good. The book is beautifully\n36:32"
+  },
+  {
+    "chunk_id": 43,
+    "source_file": "welch_labs1.txt",
+    "source_type": "talk",
+    "text": "36:25\ncover produces highly consistent Dino representations, so you know it has to be good. The book is beautifully\n36:32\nillustrated and is a great way to dig deeper into many of the topics we touched on in this video. Chapter 5 on\n36:38\nAlexnet is a great way to learn more about embedding vectors and the rise of deep learning.\n36:44\nChapter six on neural scaling laws takes a deeper look at the fascinating buildup from GPT1 to GPT3 at OpenAI.\n36:52\nChapter 9 covers diffusion models which are able to reconstruct highly accurate pixel level representations of images\n36:59\nand video but with some notable trade-offs. Chapters 1 through 4 give some great\n37:05\nbackground on all these topics covering the fundamentals of neural networks back propagation and deep learning.\n37:12\nEach chapter includes thought-provoking exercises and supporting code. The book is now shipping to 24 countries. You can\n37:19\npick up a copy today at welchlabs.com."
+  }
+]

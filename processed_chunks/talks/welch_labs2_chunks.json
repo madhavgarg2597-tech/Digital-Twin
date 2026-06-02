@@ -1,0 +1,170 @@
+[
+  {
+    "chunk_id": 0,
+    "source_file": "welch_labs2.txt",
+    "source_type": "talk",
+    "text": "SOURCE: Welch Labs\nTITLE: Yann LeCun's $1B Bet Against LLMs [Part 2]\nHOST: Welch Labs\nGUEST: Yann LeCun\nYEAR: 2026\nTYPE: Technical Explainer\nCATEGORY: World Models, Robotics, JEPA\nTOPICS: V-JEPA 2, VL-JEPA, World Models, Robotics, VLA, Planning, Hierarchical JEPA, AGI\nLANGUAGE: English\n\n========================================\n\nLeCun’s critique of VLA"
+  },
+  {
+    "chunk_id": 1,
+    "source_file": "welch_labs2.txt",
+    "source_type": "talk",
+    "text": "17:19\nscaling behavioral cloning and lack of explicit planning. Let's hear Yan's take on behavioral\n17:26\ncloning first. Oh, absolutely. Yeah, VANA are doomed. I mean, they they basically don't work\n17:32\nreally well. Okay. I mean, the only way to get them to work is to essentially\n17:37\ncollect tons and tons and tons of uh examples, you know, up or or or\n17:43\nsomething else or or if it's in the digital world, it's just, you know, people paying with uh user interface and\n17:49\nwhatever. Uh and then just be do behavior cloning. And that's only\n17:54\npractical for a very small number of uh applications and for applications where\n17:59\nthe degree of variability is not too high because those systems basically when they face a new a slightly new\n18:05\nsituation are completely helpless. So so they're they're brittle, right?\n18:11\nHuman demonstrations are a critical training data source for many VA implementations including the physical\n18:17"
+  },
+  {
+    "chunk_id": 2,
+    "source_file": "welch_labs2.txt",
+    "source_type": "talk",
+    "text": "18:05\nsituation are completely helpless. So so they're they're brittle, right?\n18:11\nHuman demonstrations are a critical training data source for many VA implementations including the physical\n18:17\nintelligence PI models. Training data sets are often captured using sophisticated controllers where\n18:24\nthe robot mimics the positions of the operator's hands. And Yan's point here is that this approach is simply not\n18:30\nscalable. It's impossible to collect human demonstration data for every single variation of every single task we\n18:38\nwant the robot to perform. Now, it's important to point out here that VA models have been shown to\n18:44\ngeneralize to new tasks outside of their training demonstrations. In fact, the breakthrough moment for VA\n18:50\nmodels back in 2023, where Google's RT2 VLA moved a Coke can to a picture of\n18:56\nTaylor Swift was a breakthrough because the human demonstration data did not have anything to do with Taylor Swift.\n19:03"
+  },
+  {
+    "chunk_id": 3,
+    "source_file": "welch_labs2.txt",
+    "source_type": "talk",
+    "text": "18:56\nTaylor Swift was a breakthrough because the human demonstration data did not have anything to do with Taylor Swift.\n19:03\nSo, to complete the task, RT2 had to connect the concept for Taylor Swift that its internal vision language model\n19:10\nhad learned during pre-training to the actions for moving objects it had learned later from human demonstrations.\n19:17\nSince this breakthrough in 2023, the LA models have advanced rapidly. The\n19:22\nphysical intelligence team has demonstrated their robots performing a range of tasks not present in their\n19:27\nhuman demonstration data, including taking Tupperware in and out of the microwave, replacing paper towel rolls,\n19:34\nand loading and unloading air fryers. Now, of course, ability to generalize is\n19:40\non a sliding scale. While these exact tasks were not in the human demonstration data, similar tasks were.\n19:48\nAnd if we ask a physical intelligence powered robot to do something too different from its demonstration data,\n19:53"
+  },
+  {
+    "chunk_id": 4,
+    "source_file": "welch_labs2.txt",
+    "source_type": "talk",
+    "text": "19:48\nAnd if we ask a physical intelligence powered robot to do something too different from its demonstration data,\n19:53\nit will likely fail. The big question here, the question that physical intelligence and many others\n20:00\nare working to address is whether or not Va models will be able to generalize well enough beyond their demonstration\n20:07\ndata to make reliable and useful robots. Yan's second big criticism of VA models\n20:14\nis lack of explicit planning. VA models are trained and deployed end to end. At\n20:20\neach time step, a new set of camera images and robot joint positions come in and the model is trained to directly\n20:26\noutput the next set of joint positions. The robot then moves to these new positions. New images are taken and the\n20:34\nprocess is repeated. This is wild when you think about what VA models can do.\n20:40\nIn this demonstration from physical intelligence, the robot has to do this intricate dance of handing the key back\n20:46"
+  },
+  {
+    "chunk_id": 5,
+    "source_file": "welch_labs2.txt",
+    "source_type": "talk",
+    "text": "20:40\nIn this demonstration from physical intelligence, the robot has to do this intricate dance of handing the key back\n20:46\nand forth between grippers to get it in just the right position to open the lock. The internal LLM is somehow\n20:54\nreasoning about how the key needs to be held and is able to break this outcome down into this repeated shuffling\n21:01\nmaneuver between grippers to get it just right. The challenge here is that we\n21:06\nhave limited control of and visibility into this planning process. We're more\n21:12\nor less left with a black box that takes in text instructions and camera images and spits out actions.\n21:18\nI do not understand how you can even think of building an agentic system\n21:24\nwithout a agentic system having the ability of predicting the consequences of its actions.\n21:31\nOkay. And VA doesn't doesn't do that. Sure. Right. Airlines do not have role models.\n21:37"
+  },
+  {
+    "chunk_id": 6,
+    "source_file": "welch_labs2.txt",
+    "source_type": "talk",
+    "text": "21:24\nwithout a agentic system having the ability of predicting the consequences of its actions.\n21:31\nOkay. And VA doesn't doesn't do that. Sure. Right. Airlines do not have role models.\n21:37\nThey cannot predict the consequences of their actions beforehand. They just take the action and then\n21:43\ndeluj as uh you know as some famous French kings said. So uh if you really\n21:51\nwant to build reliable agentic systems, they absolutely have to be able to predict the consequences of their\n21:57\nactions so that they can plan a sequence of actions to do something. first of all to uh fulfill the task that they are\n22:05\nbeing asked to fulfill but also uh perhaps to you know guarantee some safety guard rails. Sure.\n22:12\nRight. And the inference process now becomes a search as opposed to just an autogressive prediction.\n22:18\nRight. Uh so that's a world model that the whole idea of a world model. Unlike VLA,\n22:24"
+  },
+  {
+    "chunk_id": 7,
+    "source_file": "welch_labs2.txt",
+    "source_type": "talk",
+    "text": "Right. And the inference process now becomes a search as opposed to just an autogressive prediction.\n22:18\nRight. Uh so that's a world model that the whole idea of a world model. Unlike VLA,\n22:24\nLacun's approach to world models using Jeepa does not learn end to end and does\n22:29\nnot learn to imitate humans through behavioral cloning. Instead, the Jeepa architecture is used to learn an action\n22:36\nconditioned world model that can then be used to explicitly plan actions.\nLeWorldModel\n22:42\nThis is a task called push t where a robot is tasked with moving this T-shaped object to a final position\n22:48\nmarked on the table. The task is a bit trickier than it looks because it's difficult to predict how the T will\n22:55\ntranslate and rotate based on exactly how it's pushed by the robot's endector.\n23:00\nThe robot's actions are limited to effectively 2D joystick controls. We can move the end aector up, down, left, or\n23:08"
+  },
+  {
+    "chunk_id": 8,
+    "source_file": "welch_labs2.txt",
+    "source_type": "talk",
+    "text": "23:00\nThe robot's actions are limited to effectively 2D joystick controls. We can move the end aector up, down, left, or\n23:08\nright. Let's see how Lacun's world model approach works on a simulated version of push T.\n23:15\nHere the brown T is the target position and the blue T is the object that we push around and our control inputs move\n23:22\nthe yellow aector. First we learn a world model using Jeppa by taking images\n23:27\nand actions recorded from push t. At each step we train our predictor to predict the embedding of the next image\n23:34\nof the environment given the embedding of the current image and some action taken shown here using arrow keys. Here\n23:42\nwe're learning from trajectories recorded from humans performing the push task. This is a similar setup to the\n23:48\nbehavioral cloning we see with VLA. But the big difference is that the model is not learning to mimic human actions, but\n23:56\ninstead to predict what will happen next in the world given some action.\n24:01"
+  },
+  {
+    "chunk_id": 9,
+    "source_file": "welch_labs2.txt",
+    "source_type": "talk",
+    "text": "23:56\ninstead to predict what will happen next in the world given some action.\n24:01\nNow things get really interesting. Given some initial configuration, we can pass this image into our encoder and get an\n24:08\nembedding vector for our starting position. From here we can pass in any action we\n24:14\nwant into our predictor model and the predictor will return its estimated next state of the world based on our action.\n24:21\nNow this prediction is still an embedding vector. So it's hard for us to understand what exactly the model is\n24:27\nreally predicting here. But for simple environments like push t, it turns out\n24:32\nthat we can train a separate decoder model that will map these predicted embedding vectors back to images of the\n24:38\nenvironment. And remarkably, when we do this, the results make a ton of sense. If we pass\n24:44\nin this starting position and a movement upward, theector in our decoded images\n24:50"
+  },
+  {
+    "chunk_id": 10,
+    "source_file": "welch_labs2.txt",
+    "source_type": "talk",
+    "text": "24:38\nenvironment. And remarkably, when we do this, the results make a ton of sense. If we pass\n24:44\nin this starting position and a movement upward, theector in our decoded images\n24:50\nmoves upward. Here's a movement to the left, to the right, and down. From here, we can chain\n24:57\nactions together at each step, passing the predicted new state of the world back into our predictor and passing in\n25:05\nour latest action. So our Jeep trained world model is essentially a learned\n25:10\nvideo game, a learned simulated version of the world that we can use to plan\n25:15\nactions and observe their consequences. Using our prediction loop and decoder,\n25:21\nwe can compare what happens in our learned world model to the real thing. Here's 18 steps of actions taken in our\n25:29\nlearned world model and in our real push t environment. These match remarkably well. We do see\n25:36\nsome inconsistencies and drift, but overall our Jeppa model has learned the dynamics of our pusht environment\n25:43"
+  },
+  {
+    "chunk_id": 11,
+    "source_file": "welch_labs2.txt",
+    "source_type": "talk",
+    "text": "25:36\nsome inconsistencies and drift, but overall our Jeppa model has learned the dynamics of our pusht environment\n25:43\nremarkably well. Here's four more comparisons between our learned world model and the real pusht environment.\n25:51\nThe top frames show the world model generated roll out passing the output of a predictor back into its input after\n25:57\neach step and the bottom frames show the real environment following the same actions. We generally see good\n26:04\nagreement, but our learned world model does go off the rails sometimes. In\n26:09\npractice, this instability limits how far we can reasonably look into the future when planning using these world\n26:16\nmodels. The push team model implementation we've been experimenting with is from a Jeppa implementation\n26:22\ncalled layworld model. Layworld model is trained from scratch on push t. As we've\n26:29\nseen, our model inputs are raw pixels and actions. And remarkably from this data alone, our world model learns the\n26:36"
+  },
+  {
+    "chunk_id": 12,
+    "source_file": "welch_labs2.txt",
+    "source_type": "talk",
+    "text": "26:29\nseen, our model inputs are raw pixels and actions. And remarkably from this data alone, our world model learns the\n26:36\nphysics of the environment, including the fact that our blue tea is rigid and movable. And the complex interaction\n26:43\nbetween our aector and the T. Looking inside our Jeepa model's learned world like this is fascinating. It's like a\n26:51\nlearned cartoon sketch of the dynamics of the push t world. From here we can use our world model to\n26:57\nexplicitly plan a set of actions instead of learning to directly imitate human actions as we would with VA approaches.\n27:05\nAnd then if you have this you can uh predict the outcome of a sequence of actions and you can by optimization you\n27:11\ncan figure out an optimal sequence of actions to arrive at a particular outcome. Right? This is classical\n27:18\noptimal control. To plan a course of actions, the lay world model team used a very general planning method called the\n27:25"
+  },
+  {
+    "chunk_id": 13,
+    "source_file": "welch_labs2.txt",
+    "source_type": "talk",
+    "text": "27:18\noptimal control. To plan a course of actions, the lay world model team used a very general planning method called the\n27:25\ncross entropy method or CM. Given a starting image and a goal image, CM\n27:31\nstarts with a completely random set of actions. Here's 500 randomly chosen\n27:36\ntrajectories for ourector. From here, we use our world model to select the most promising trajectories.\n27:43\nThis trajectory bounces around a bit and then bumps into our T. Using our world model, we can predict what would happen\n27:50\nif we were to follow this path. Note that the layw world model team groups steps of actions together into groups of\n27:56\nfive and passes these actions into the predictor all at once. So our first\n28:02\nbatch of actions moves our aector down into the right. And our world model simulation matches this behavior. From\n28:09\nhere, we can continue our roll out five steps at a time with each batch passing our embedding space prediction from our\n28:16"
+  },
+  {
+    "chunk_id": 14,
+    "source_file": "welch_labs2.txt",
+    "source_type": "talk",
+    "text": "28:09\nhere, we can continue our roll out five steps at a time with each batch passing our embedding space prediction from our\n28:16\nprevious batch into our predictor along with our latest five actions. After our\n28:22\nrandomly chosen 25 steps, our world model predicts that our aector will rotate our t, not really moving it any\n28:29\ncloser to its goal state. To measure how much closer or farther a given trajectory takes us from our goal, we\n28:37\ncompute the embedding of our goal image and then measure the uklidian distance between our final predicted embedding\n28:44\nvector and the goal embedding vector. From here, we perform the same roll out\n28:49\nprocess for each randomly chosen path and compute the same distance metric for each path. Let's color each path\n28:57\naccording to its distance in embedding space to our goal image. Here's our best\n29:02\nperforming path. It looks a bit random, but if we visualize our decoded world\n29:07"
+  },
+  {
+    "chunk_id": 15,
+    "source_file": "welch_labs2.txt",
+    "source_type": "talk",
+    "text": "28:57\naccording to its distance in embedding space to our goal image. Here's our best\n29:02\nperforming path. It looks a bit random, but if we visualize our decoded world\n29:07\nmodel predictions, we see that this path actually bumps into our t twice, pushing\n29:13\nit towards our goal. From here, our top performing 30 trajectories are grouped into an elite\n29:19\nset, and the mean and standard deviation of this elite set are used to sample a new set of trajectories.\n29:26\nThis process is repeated again and again until we're left with a tight set of candidate trajectories and ultimately a\n29:33\nfinal planned path. And what's really remarkable here is that our planning happens completely in\n29:39\nthe model's learned embedding space. The score we give each possible path guides the entire planning process and\n29:47\nis computed as the distance between the final predicted embedding vector for each path and the goal embedding vector.\n29:55"
+  },
+  {
+    "chunk_id": 16,
+    "source_file": "welch_labs2.txt",
+    "source_type": "talk",
+    "text": "29:47\nis computed as the distance between the final predicted embedding vector for each path and the goal embedding vector.\n29:55\nWe can now follow our planned path and see that our aector nicely pushes RT\n30:00\ntowards its goal. Our resulting system cleanly addresses\n30:05\nLacun's critiques of VLA. It does not learn by imitating humans. So the system\n30:11\ndoes not need to see how a human would solve the task, but can instead find solutions on its own using its world\n30:18\nmodel and an explicit planning process. However, while the architecture of layworld model is elegant and free from\n30:24\nthese concerns, the performance these models have shown to date is dramatically behind VLA on the push\n30:31\ntask. Lay world model can only reliably plan about five prediction loops in advance, limiting the model to\n30:38\nrelatively simple manipulations. When I'm trying to imagine a JEPA powered robot kind of doing a long\nHierarchical JEPA\n30:44"
+  },
+  {
+    "chunk_id": 17,
+    "source_file": "welch_labs2.txt",
+    "source_type": "talk",
+    "text": "30:38\nrelatively simple manipulations. When I'm trying to imagine a JEPA powered robot kind of doing a long\nHierarchical JEPA\n30:44\nhorizon task like cleaning a kitchen for 10 minutes for example, right? Um I'm in my head, right? It's hard for me to\n30:50\nimagine even in embedding space uh the predictor being able to see 10 minutes into the head moving around a kitchen\n30:56\nthat seems like uh longer than I would expect, right? Um does that is that where hierarchical starts to matter?\n31:02\nWhat what are your thoughts on long horizon task with Jeepa? Yeah, you have the answer in your question. The answer to this is uh\n31:08\nhierarchical models. Okay, so what's a hierarchical models model? It's one where uh at a low level you make\n31:16\ndetailed predictions. Mhm. But you don't but you don't predict long term because the more detail you\n31:22\npreserve about the prediction, the more your prediction is likely to diverge from reality very quickly. Yeah.\n31:29"
+  },
+  {
+    "chunk_id": 18,
+    "source_file": "welch_labs2.txt",
+    "source_type": "talk",
+    "text": "31:22\npreserve about the prediction, the more your prediction is likely to diverge from reality very quickly. Yeah.\n31:29\nRight. And so you you train low levels in the predictor to make short-term prediction\n31:34\nwith a lot of details, which sometimes you need because you know you need to know exactly what's going to happen when you grab an object,\n31:40\nright? you need to grab exactly the right way and things like this. So you need a lot of information\n31:46\nbut then if you want to make longerterm predictions then you can only do them with fewer\n31:51\ndetails about what you predict right uh and so that you know the your your\n31:57\nyour prediction does not diverge from reality. What what would what would the interface be like between the layers of the\n32:03\nhierarchy? Well, the the same kind of interface\n32:08\nthat exists between various layers of a deep neural net. That's exactly what Sure. Yeah. So, it's in some embedding\n32:14"
+  },
+  {
+    "chunk_id": 19,
+    "source_file": "welch_labs2.txt",
+    "source_type": "talk",
+    "text": "32:03\nhierarchy? Well, the the same kind of interface\n32:08\nthat exists between various layers of a deep neural net. That's exactly what Sure. Yeah. So, it's in some embedding\n32:14\nspace, the interface between layers. It doesn't have to be semantic or uh certainly not language, right?\n32:19\nNo language. I mean, your cat your cat can do hierarchical planning. So, you know, they don't have language, right?\n32:25\nRight. Yeah. In Lacun's proposed solution, hierarchical world models, we\n32:30\ncan tackle longer horizon planning by simultaneously planning at different levels of abstraction, Jan and his\n32:37\ncollaborators recently applied a hierarchical world model approach to push t and other tasks and using two\n32:44\nlayers of hierarchy were able to extend the planning horizon in push t from five time steps to 15. Interestingly, the\n32:52\npredictions from the higher level world model serve as sub goals for the lower level world model and planner\n32:58"
+  },
+  {
+    "chunk_id": 20,
+    "source_file": "welch_labs2.txt",
+    "source_type": "talk",
+    "text": "32:52\npredictions from the higher level world model serve as sub goals for the lower level world model and planner\n32:58\nand you can't plan a long uh action in\n33:03\nterms of you know millisecond by millisecond muscle control. Sure. Mostly because you don't have the information most of the time like the\n33:10\nexample I use very often is if I'm sitting in my office at NYU and I want to be in Paris tomorrow.\n33:16\nSure. um I cannot plan my entire trip in terms of millisecond by millisecond muscle control\n33:21\nright I don't have the information right you know in addition to the fact that it would be impossible to to do the the the\n33:28\nplanning uh so you go to a higher level of abstraction um you know a high level\n33:34\nabstraction would be well I need to like you know go to the airport and catch a plane that's a high level plan right um\n33:41\nand I have a sub goal which is going to the airport Um I'm in New York City. So so I'm go\n33:48"
+  },
+  {
+    "chunk_id": 21,
+    "source_file": "welch_labs2.txt",
+    "source_type": "talk",
+    "text": "33:41\nand I have a sub goal which is going to the airport Um I'm in New York City. So so I'm go\n33:48\ndown on the street and have a taxi and then I have seup of goal going down in the street etc. And at some point in the\n33:55\nhierarchy you have all the information you need and it's a task you are used to\n34:01\ndoing like standing up from your chair or walking to the elevator right and and do you think if we have the right architecture for the hierarchy\n34:08\nthen the like the hierarchy will be kind of learned just as like in CNN's you know kind of magically you know we'll\n34:13\nlearn this hierarchy of features. Do you expect if we have the right hierarchical JPA architecture then that will just become be emergent basically\n34:20\nthat's kind of the hope yeah totally that the system will you know discover the appropriate hierarchical\n34:26\nrepresentation by being trained to make short-term prediction at a low level and higher interesting\n34:31"
+  },
+  {
+    "chunk_id": 22,
+    "source_file": "welch_labs2.txt",
+    "source_type": "talk",
+    "text": "34:26\nrepresentation by being trained to make short-term prediction at a low level and higher interesting\n34:31\nlongerterm prediction at a higher level right uh and and and and so the hope is that\n34:37\nyou know through this type of uh predicted prediction based self-supervised learning the system will will learn a good hierarchy of\n34:43\nrepresentations But it probably requires to train on kind of semiexpert trajectories like you you can't learn\n34:50\nhigh level things if you train on completely random totally observations. Yeah. Interesting. Lacun's vision for\nMy Take\n34:56\nJeepa world models in the future of AI is well considered and compelling\n35:01\nbut it's still early for Jeepa. VJEPA 2 and VLJA give us some powerful glimpses\n35:08\ninto what the framework can do and show that the Jeepa approach is not incompatible with the current mainstream\n35:15\nlanguageddriven approach to AI. But when we zoom out to agentic and robotics problems, Jeepadriven world\n35:22"
+  },
+  {
+    "chunk_id": 23,
+    "source_file": "welch_labs2.txt",
+    "source_type": "talk",
+    "text": "35:15\nlanguageddriven approach to AI. But when we zoom out to agentic and robotics problems, Jeepadriven world\n35:22\nmodel approaches are still quite limited and there are many unanswered research questions.\n35:29\n30 years ago, as Jan worked on early deep learning systems to recognize handwritten digits, these systems\n35:35\nprobably felt pretty limited. Just as the push t demonstrations feel limited today. The fact that these core deep\n35:42\nlearning ideas could be scaled up to the powerful AI systems we have today is remarkable. Could Jeepa follow a similar\n35:49\ntrajectory? Is Jan's billion dollar bet on Jeepa completely right, part of a\n35:54\nlarger solution, or just a dead end? How will we know over the next you know two\nThe Future of JEPA\n36:00\nthree five years if your this world model Jeeper approach is working? What would be a good next you know two three\n36:05\nfive years at at Omni Labs? So within uh within a year or two uh\n36:12"
+  },
+  {
+    "chunk_id": 24,
+    "source_file": "welch_labs2.txt",
+    "source_type": "talk",
+    "text": "36:00\nthree five years if your this world model Jeeper approach is working? What would be a good next you know two three\n36:05\nfive years at at Omni Labs? So within uh within a year or two uh\n36:12\nwe'll we'll try to apply the the whole model planning etc to a number of uh\n36:19\nindustrial applications. Cool. Okay. And this is not necessarily a business model or to generate revenue.\n36:24\nIt's more to gain experience with sort of pushing this type of methodology into\n36:30\npractical applications. And the ideal set of applications would be um\n36:38\nessentially controlling a complex systems whose behavior cannot be reduced to a small number of equations.\n36:44\nOkay? Because if you can write down the equations like you know a simple robot arm or even a humanoid robot, you can\n36:50\njust write down the dynamical equations. you you need to identify a few a few coefficients but you can just write down\n36:55"
+  },
+  {
+    "chunk_id": 25,
+    "source_file": "welch_labs2.txt",
+    "source_type": "talk",
+    "text": "36:50\njust write down the dynamical equations. you you need to identify a few a few coefficients but you can just write down\n36:55\nthe equations uh or you know you're NASA and you're shooting a rocket to go to the moon you can just you know you have\n37:01\ncomplete dynamical model of the rocket and you can plan the entire trajectory right u but like what about a an entire\n37:09\njet engine or an entire airplane for that matter or um or a chemical plant or\n37:15\na power plant or a patient uh with you know a disease like say diabetes, right?\n37:24\nwhat course of treatment um should you follow uh to kind of control the blood\n37:32\nsugar of the patient and you know if you have a good predictive model of the state of the patient uh you might you\n37:39\nmight be able to design a a course of treatment uh or you know how would you\n37:44\nuh uh tell a a stem cell to turn itself into a beta cell for pancreas to produce\n37:50"
+  },
+  {
+    "chunk_id": 26,
+    "source_file": "welch_labs2.txt",
+    "source_type": "talk",
+    "text": "37:39\nmight be able to design a a course of treatment uh or you know how would you\n37:44\nuh uh tell a a stem cell to turn itself into a beta cell for pancreas to produce\n37:50\ninsulin right I mean there's a lot of complex systems like this simply cannot reduce to a small number of equations\n37:56\nbut you might be able to produce a phenomenological model of it from data\n38:01\nand then use that to to uh to control it. Um and you know and it's true again\n38:06\nof you know complex uh complex systems in industry or chemistry or or or or\n38:12\nwhatever right and there's a lot of really uh you know promising work in\n38:19\nmaterial science chemistry where where this kind of idea is uh is there you know you train a phological model of a\n38:26\ncomplex collective phenomenon and then you use it to design new materials new catalyst for chemical reactions or new\n38:33\nbatteries you Oh, etc. Um, very promising. So,\n38:38"
+  },
+  {
+    "chunk_id": 27,
+    "source_file": "welch_labs2.txt",
+    "source_type": "talk",
+    "text": "38:26\ncomplex collective phenomenon and then you use it to design new materials new catalyst for chemical reactions or new\n38:33\nbatteries you Oh, etc. Um, very promising. So,\n38:38\nthat would be the first applications and then eventually a few years from now, three, five years from now, uh, the hope\n38:44\nis that, you know, we might become the main supplier of intelligent systems, whatever the application is.\n38:50\nAmazing. Maybe we can talk again in a few years and we'll uh we'll see all the progress. I'm excited. Right. Exactly."
+  }
+]
