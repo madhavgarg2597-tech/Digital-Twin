@@ -23,7 +23,6 @@ collection = client.get_collection(
     COLLECTION_NAME
 )
 
-
 def vector_search(
     query,
     k=10
@@ -38,9 +37,14 @@ def vector_search(
         query_embeddings=[
             query_embedding.tolist()
         ],
-        n_results=k
+        n_results=k,
+        include=["documents", "metadatas"]
     )
 
-    return results[
-        "documents"
-    ][0]
+    docs = results["documents"][0]
+    metas = results["metadatas"][0]
+
+    return [
+        {"text": doc, "metadata": meta}
+        for doc, meta in zip(docs, metas)
+    ]

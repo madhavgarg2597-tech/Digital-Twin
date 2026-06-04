@@ -6,7 +6,6 @@ from rank_bm25 import BM25Okapi
 
 from retrieval.config import BM25_FILE, DOCS_FILE
 
-
 def build_bm25():
 
     all_docs = []
@@ -24,17 +23,18 @@ def build_bm25():
         papers = json.load(f)
 
     for item in papers:
-        all_docs.append(
-            item["page_content"]
-        )
+        all_docs.append({
+            "text": item["page_content"],
+            "metadata": item.get("metadata", {})
+        })
 
-    folders = [
-        "processed_chunks/blogs",
-        "processed_chunks/interviews",
-        "processed_chunks/talks"
-    ]
+    folders_meta = {
+        "processed_chunks/blogs": "blog",
+        "processed_chunks/interviews": "interview",
+        "processed_chunks/talks": "talk",
+    }
 
-    for folder in folders:
+    for folder, source_type in folders_meta.items():
 
         for file in Path(folder).glob("*.json"):
 
@@ -48,16 +48,21 @@ def build_bm25():
 
             for item in data:
 
-                all_docs.append(
-                    item["text"]
-                )
+                all_docs.append({
+                    "text": item["text"],
+                    "metadata": {
+                        "source_file": item.get("source_file", file.stem),
+                        "source_type": item.get("source_type", source_type),
+                        "chunk_id": item.get("chunk_id", 0),
+                    }
+                })
 
     print(
         f"Loaded {len(all_docs)} docs"
     )
 
     tokenized_docs = [
-        doc.lower().split()
+        doc["text"].lower().split()
         for doc in all_docs
     ]
 
@@ -89,7 +94,6 @@ def build_bm25():
         "BM25 index saved."
     )
 
-
 print("Loading BM25 index...")
 
 with open(
@@ -110,7 +114,6 @@ print(
     f"BM25 loaded: {len(all_docs)} docs"
 )
 
-
 def bm25_search(
     query,
     k=10
@@ -126,14 +129,20 @@ def bm25_search(
         tokens
     )
 
-    ranked = sorted(
+    ranked_items = sorted(
         zip(all_docs, scores),
         key=lambda x: x[1],
         reverse=True
     )
 
-    return [
-        doc
-        for doc, _
-        in ranked[:k]
-    ]
+    results = []
+    for doc, _ in ranked_items[:k]:
+        if isinstance(doc, str):
+            results.append({
+                "text": doc,
+                "metadata": {}
+            })
+        else:
+            results.append(doc)
+
+    return results

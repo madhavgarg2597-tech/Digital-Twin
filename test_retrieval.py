@@ -1,4 +1,4 @@
-from retrieval.fusion import hybrid_search, build_context
+from retrieval.fusion import hybrid_search, build_context, extract_sources
 from retrieval.reranker import rerank_results
 
 if __name__ == "__main__":
@@ -36,4 +36,14 @@ if __name__ == "__main__":
         print(f"RERANKED RESULT {i}")
         print("=" * 80)
 
-        print(doc[:1200])
+        print(doc["text"][:1200])
+
+    # Test citation extraction
+    sources = extract_sources(reranked_chunks)
+    print("\n")
+    print("=" * 80)
+    print("EXTRACTED SOURCES")
+    print("=" * 80)
+    for s in sources:
+        year_str = f" ({s['year']})" if s['year'] else ""
+        print(f"  {s['type_label']}  {s['title']}{year_str}")

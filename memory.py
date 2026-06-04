@@ -3,37 +3,64 @@ from pathlib import Path
 
 import streamlit as st
 
+def _init_chats():
+    if "chats" not in st.session_state:
+        st.session_state.chats = {}
+    if "active_chat_id" not in st.session_state:
+        st.session_state.active_chat_id = None
 
-if "chat_memory" not in st.session_state:
-    st.session_state.chat_memory = []
+def create_chat(chat_id, title="New Chat"):
+    _init_chats()
+    st.session_state.chats[chat_id] = {
+        "title": title,
+        "messages": [],
+        "chat_memory": [],
+    }
+    st.session_state.active_chat_id = chat_id
+
+def get_active_chat():
+    _init_chats()
+    cid = st.session_state.active_chat_id
+    if cid and cid in st.session_state.chats:
+        return st.session_state.chats[cid]
+    return None
+
+def delete_chat(chat_id):
+    _init_chats()
+    if chat_id in st.session_state.chats:
+        del st.session_state.chats[chat_id]
+    if st.session_state.active_chat_id == chat_id:
+        remaining = list(st.session_state.chats.keys())
+        st.session_state.active_chat_id = (
+            remaining[0] if remaining else None
+        )
 
 def add_to_memory(role, content):
-
-    st.session_state.chat_memory.append({
+    chat = get_active_chat()
+    if chat is None:
+        return
+    chat["chat_memory"].append({
         "role": role,
         "content": content
     })
-
-    st.session_state.chat_memory = (
-        st.session_state.chat_memory[-6:]
-    )
+    chat["chat_memory"] = chat["chat_memory"][-6:]
 
 def get_memory():
-
+    chat = get_active_chat()
+    if chat is None:
+        return ""
     history = []
-
-    for item in st.session_state.chat_memory:
-
+    for item in chat["chat_memory"]:
         history.append(
             f"{item['role']}: {item['content']}"
         )
-
     return "\n".join(history)
 
 def clear_memory():
-
-    st.session_state.chat_memory = []
-
+    chat = get_active_chat()
+    if chat is None:
+        return
+    chat["chat_memory"] = []
 
 MEMORY_FILE = "long_term_memory.json"
 

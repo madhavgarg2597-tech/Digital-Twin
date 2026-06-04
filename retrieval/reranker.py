@@ -8,7 +8,6 @@ reranker = CrossEncoder(
 
 print("Reranker loaded.")
 
-
 def rerank_results(
     query,
     chunks,
@@ -16,7 +15,7 @@ def rerank_results(
 ):
 
     pairs = [
-        [query, chunk]
+        [query, chunk["text"]]
         for chunk in chunks
     ]
 
