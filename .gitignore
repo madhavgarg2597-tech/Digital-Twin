@@ -20,3 +20,8 @@ yann_lecun_db/
 venv/
 .venv/
 env/
+
+# Unused large files and folders
+make_design_doc.py
+DESIGN.docx
+research papers/
