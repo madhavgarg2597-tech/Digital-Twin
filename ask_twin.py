@@ -58,11 +58,27 @@ def is_memory_query(query):
 
 def extract_and_save_memory(user_query, response_text, client_instance):
     def _run():
-        prompt = f"""
-Analyze the following conversation turn between a User and an AI Assistant (Yann LeCun Digital Twin).
-Extract any new, persistent, and important facts about the User (e.g., their name, preferences, project details, background).
-Write a single concise sentence describing the user fact.
-If there are no new persistent facts about the user to remember, output exactly 'NONE'.
+        prompt = f"""You are a Memory Extraction Agent for a Digital Twin AI. Analyze the conversation turn below and extract any new, persistent, important facts about the User.
+
+WHAT TO EXTRACT (only if mentioned):
+
+1. PERSONAL PROFILE — Name, age range, occupation, college/university/company, degree/branch/specialization, location, languages spoken.
+2. PREFERENCES — Preferred programming languages, AI frameworks/tools, learning style, communication style, food, fitness, productivity preferences.
+3. LONG-TERM GOALS — Career goals, academic goals, certifications being pursued, research interests, personal development goals, fitness goals.
+4. PROJECT KNOWLEDGE — Active projects, project descriptions, architecture decisions, technology stack, future feature plans, milestones, design references.
+5. EDUCATION & SKILLS — Courses completed, skills learned, technologies mastered, areas currently being studied, certifications earned.
+6. IMPORTANT DECISIONS — Chosen tools/frameworks, preferred workflows, architectural decisions, repeatedly used formats/templates.
+7. REUSABLE INFORMATION — Resume details, portfolio info, GitHub links, assignment formats, frequently used code patterns, frequently referenced documents.
+8. RELATIONSHIPS BETWEEN FACTS — Store connected knowledge instead of isolated facts. Example: "User studies Electrical Engineering and wants to specialize in AI."
+9. USER HABITS — Typical work schedule, study habits, preferred learning resources, recurring activities.
+10. CONTEXTUAL PREFERENCES — Preferred output formats, report structure, coding conventions, preferred explanation depth.
+
+DO NOT STORE: Temporary questions, one-time requests, daily activities with no future value, passwords, banking info, sensitive personal information, short-term reminders.
+
+RULES:
+- Write a single concise sentence describing the user fact.
+- Connect related facts into one sentence when possible.
+- If there are no new persistent facts about the user, output exactly 'NONE'.
 
 User: {user_query}
 Assistant: {response_text}
