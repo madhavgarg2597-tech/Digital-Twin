@@ -209,8 +209,9 @@ pip install streamlit google-genai python-dotenv langchain-text-splitters \
 ### 3. Configure your API key
 ```bash
 cp .env.example .env
-# Open .env and add your Gemini API key:
-# GEMINI_API_KEY=your_key_here
+# Open .env and add your API keys:
+# GEMINI_API_KEY=your_gemini_key_here
+# GROQ_API_KEY=your_groq_key_here  (Required for the Live Evaluation feature)
 ```
 
 ### 4. Build the indexes (run once)
