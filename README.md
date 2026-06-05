@@ -83,10 +83,12 @@ Digital-Twin/
 ├── app.py                    # Streamlit chat UI (premium dark theme, multi-chat, memory dashboard)
 ├── ask_twin.py               # Core orchestration: retrieval → generation → memory extraction
 ├── memory.py                 # Short-term + long-term memory management
+├── eval_live.py              # On-the-fly RAGAS evaluation (Faithfulness & Relevancy)
 ├── system_prompt.py          # Yann LeCun persona system prompt (separated for modularity)
 ├── create_chroma_db.py       # One-time script: build ChromaDB + BM25 indexes
 ├── test_retrieval.py         # Retrieval pipeline entry point + test runner
 ├── long_term_memory.json     # Persistent long-term user facts (auto-populated)
+├── architecture.md           # Mermaid flowchart of the system architecture
 │
 ├── retrieval/                # Modular retrieval package
 │   ├── __init__.py
