@@ -11,6 +11,7 @@ from memory import (
     remember
 )
 import threading
+from datetime import datetime
 from test_retrieval import (
     hybrid_search,
     rerank_results,
@@ -58,7 +59,10 @@ def is_memory_query(query):
 
 def extract_and_save_memory(user_query, response_text, client_instance):
     def _run():
+        current_time = datetime.now().strftime("%Y-%m-%d %H:%M")
         prompt = f"""You are a Memory Extraction Agent for a Digital Twin AI. Analyze the conversation turn below and extract any new, persistent, important facts about the User.
+
+Current Date & Time: {current_time}
 
 WHAT TO EXTRACT (only if mentioned):
 

@@ -8,6 +8,7 @@ from memory import (
     delete_chat,
     get_memory,
     get_long_term,
+    load_long_term,
     clear_long_term
 )
 
@@ -465,9 +466,20 @@ header[data-testid="stHeader"] { background: transparent !important; }
 def memory_dashboard():
     st.markdown("### Long-Term Memory (Global)")
     st.write("Facts persistent across all chats.")
-    lt_mem = get_long_term()
-    if lt_mem.strip():
-        st.info(lt_mem)
+    memories = load_long_term()
+    if memories:
+        for m in memories:
+            if isinstance(m, dict):
+                ts = m.get("timestamp", "unknown")
+                fact = m.get("fact", "")
+                st.markdown(
+                    f'<div style="background:#1c1c27;border:1px solid #2a2940;border-radius:10px;'
+                    f'padding:12px 16px;margin-bottom:8px;">'
+                    f'<span style="color:#6b6980;font-size:11px;">🕐 {ts}</span><br>'
+                    f'<span style="color:#e0dff0;font-size:14px;">{fact}</span>'
+                    f'</div>',
+                    unsafe_allow_html=True
+                )
     else:
         st.write("No long-term memories saved.")
         

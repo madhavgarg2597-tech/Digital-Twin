@@ -1,4 +1,5 @@
 import json
+from datetime import datetime
 from pathlib import Path
 
 import streamlit as st
@@ -84,7 +85,21 @@ def load_long_term():
         encoding="utf-8"
     ) as f:
 
-        return json.load(f)
+        data = json.load(f)
+
+    migrated = False
+    for i, item in enumerate(data):
+        if isinstance(item, str):
+            data[i] = {
+                "fact": item,
+                "timestamp": "unknown"
+            }
+            migrated = True
+
+    if migrated:
+        save_long_term(data)
+
+    return data
 
 def save_long_term(memories):
 
@@ -105,11 +120,19 @@ def remember(memory_text):
 
     memories = load_long_term()
 
-    if memory_text not in memories:
+    existing_facts = [
+        m["fact"] for m in memories
+        if isinstance(m, dict)
+    ]
 
-        memories.append(
-            memory_text
-        )
+    if memory_text not in existing_facts:
+
+        memories.append({
+            "fact": memory_text,
+            "timestamp": datetime.now().strftime(
+                "%Y-%m-%d %H:%M"
+            )
+        })
 
         save_long_term(
             memories
@@ -119,7 +142,17 @@ def get_long_term():
 
     memories = load_long_term()
 
-    return "\n".join(memories)
+    lines = []
+    for m in memories:
+        if isinstance(m, dict):
+            ts = m.get("timestamp", "unknown")
+            lines.append(
+                f"[{ts}] {m['fact']}"
+            )
+        else:
+            lines.append(str(m))
+
+    return "\n".join(lines)
 
 def clear_long_term():
 
