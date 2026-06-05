@@ -12,12 +12,12 @@ from memory import (
 )
 import threading
 from datetime import datetime
-from test_retrieval import (
+from retrieval.fusion import (
     hybrid_search,
-    rerank_results,
     build_context,
     extract_sources
 )
+from retrieval.reranker import rerank_results
 
 load_dotenv(override=True)
 
@@ -109,16 +109,12 @@ def ask_twin(
     final_k=8,
     response_length="Medium"
 ):
-    print("\n" + "=" * 80)
-    print("USER QUERY RECEIVED:")
-    print(user_query)
-    print("=" * 80)
+
 
     sources = []
 
     if is_memory_query(user_query):
 
-        print("\nMEMORY QUERY DETECTED")
 
         context = ""
 
@@ -145,23 +141,7 @@ def ask_twin(
 
     conversation_history = get_memory()
 
-    print("\n" + "=" * 80)
-    print("MEMORY")
-    print(conversation_history)
-    print("=" * 80)
     long_term_memory = get_long_term()
-    print("\n" + "="*80)
-    print("LONG TERM MEMORY")
-    print(long_term_memory)
-    print("="*80)
-
-    print("\n" + "="*80)
-    print("SOURCES FOUND")
-    for s in sources:
-        year_str = f" ({s['year']})" if s.get('year') else ""
-        label = s['type_label'].encode('ascii', 'ignore').decode('ascii').strip()
-        print(f"  [{label}]  {s['title']}{year_str}")
-    print("="*80)
 
     length_instructions = {
         "Short": "RESPONSE LENGTH: Keep your answer very short - 2-3 sentences maximum. Be extremely concise. No bullet points.",
@@ -204,8 +184,6 @@ User Question:
 Provide an answer as Yann LeCun:
 """
 
-    print("\nPROMPT QUESTION:")
-    print(user_query)
 
     response = client.models.generate_content(
         model="gemini-2.5-flash",
