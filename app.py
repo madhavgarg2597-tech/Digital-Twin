@@ -672,7 +672,7 @@ else:
                 )
             
             contexts = msg.get("contexts", [])
-            # Find the user question that preceded this assistant message
+            
             user_q = ""
             msg_index = messages.index(msg)
             if msg_index > 0 and messages[msg_index-1]["role"] == "user":
