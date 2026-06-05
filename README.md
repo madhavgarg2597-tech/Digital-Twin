@@ -12,6 +12,7 @@ An AI-powered digital twin of Yann LeCun that answers questions the way he would
 - 🧠 **Dual Memory System** — short-term (session) + long-term (persistent JSON) memory
 - 🤖 **Automated Memory Extraction** — background LLM agent silently learns and remembers facts about you across conversations
 - 🧠 **Memory Dashboard** — interactive popup to view long-term and short-term memory state in real time
+- 📊 **Live RAGAS Evaluation** — real-time, on-the-fly evaluation of Faithfulness and Relevancy for single answers
 - 💬 **Multi-Chat Support** — create, switch between, and delete multiple conversation threads
 - 🎛️ **Response Length Control** — toggle between Short, Medium, and Detailed response modes
 - 📚 **Source Citations** — expandable source chips beneath each response showing which papers/blogs/talks were used
@@ -163,6 +164,20 @@ The Streamlit frontend features a premium dark-themed interface:
 - **Source Citation Chips** — expandable source references under each response showing the paper/blog/talk title, type, and year
 - **Suggestion Chips** — pre-built quick-start questions on the welcome screen
 - **Glassmorphism Design** — frosted-glass sidebar, gradient header accents, smooth hover animations, and custom scrollbars
+- **Live Evaluation Button** — instantly grade the quality of the Yann LeCun twin's response.
+
+---
+
+## 📊 Live RAGAS Evaluation (`eval_live.py`)
+
+Every response includes an **"Evaluate"** button. Clicking it triggers an on-the-fly, ground-truth-free RAGAS evaluation using a secondary LLM grader (via Groq `llama-3.3-70b-versatile`). It computes:
+
+1. **Faithfulness**: Did the AI stick strictly to the retrieved context, or did it hallucinate? (Higher is better).
+2. **Answer Relevancy**: Did the AI directly answer the user's prompt?
+
+> [!NOTE]
+> **Why is Answer Relevancy sometimes low?**
+> RAGAS calculates relevancy by backwards-generating the original question from the answer. Because the `system_prompt.py` gives Yann LeCun a very **strong, opinionated, conversational persona**, the answer contains conversational filler ("In my view...", "I disagree with that framing"). This confuses the mathematical grader, resulting in artificially lower relevancy scores (e.g., 0.45). As long as Faithfulness is high, a low relevancy score simply means the persona is working!
 
 ---
 
@@ -228,6 +243,8 @@ This runs a test query (`"What is JEPA?"`) through the full hybrid search → re
 |---|---|
 | LLM (Generation) | Gemini 2.5 Flash (`google-genai`) |
 | LLM (Memory Extraction) | Gemini 2.5 Flash (background thread) |
+| LLM (Evaluation Grader) | Groq LLaMA 3.3 70B (`langchain-groq`) |
+| Evaluation Framework | RAGAS (`ragas`) |
 | Vector DB | ChromaDB |
 | Embeddings | `BAAI/bge-base-en-v1.5` (SentenceTransformers) |
 | Keyword Search | BM25Okapi (`rank-bm25`) |

@@ -112,6 +112,7 @@ def ask_twin(
 
 
     sources = []
+    contexts = []
 
     if is_memory_query(user_query):
 
@@ -138,6 +139,8 @@ def ask_twin(
         sources = extract_sources(
             reranked_chunks
         )
+        
+        contexts = [chunk["text"] for chunk in reranked_chunks]
 
     conversation_history = get_memory()
 
@@ -202,7 +205,7 @@ Provide an answer as Yann LeCun:
 
     extract_and_save_memory(user_query, response.text, client)
 
-    return response.text, sources
+    return response.text, sources, contexts
 
 if __name__ == "__main__":
 
@@ -222,7 +225,7 @@ if __name__ == "__main__":
 
         try:
 
-            answer, sources = ask_twin(
+            answer, sources, contexts = ask_twin(
                 query
             )
 

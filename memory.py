@@ -155,5 +155,10 @@ def get_long_term():
     return "\n".join(lines)
 
 def clear_long_term():
-
     save_long_term([])
+
+def delete_long_term_memory(index):
+    memories = load_long_term()
+    if 0 <= index < len(memories):
+        memories.pop(index)
+        save_long_term(memories)

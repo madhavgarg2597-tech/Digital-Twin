@@ -1,6 +1,11 @@
 import uuid
+import sys
+import os
 import streamlit as st
+
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 from ask_twin import ask_twin
+from eval_live import evaluate_single_turn
 from memory import (
     _init_chats,
     create_chat,
@@ -9,7 +14,8 @@ from memory import (
     get_memory,
     get_long_term,
     load_long_term,
-    clear_long_term
+    clear_long_term,
+    delete_long_term_memory
 )
 
 st.set_page_config(
@@ -468,18 +474,27 @@ def memory_dashboard():
     st.write("Facts persistent across all chats.")
     memories = load_long_term()
     if memories:
-        for m in memories:
+        for i, m in enumerate(memories):
             if isinstance(m, dict):
                 ts = m.get("timestamp", "unknown")
                 fact = m.get("fact", "")
-                st.markdown(
-                    f'<div style="background:#1c1c27;border:1px solid #2a2940;border-radius:10px;'
-                    f'padding:12px 16px;margin-bottom:8px;">'
-                    f'<span style="color:#6b6980;font-size:11px;">🕐 {ts}</span><br>'
-                    f'<span style="color:#e0dff0;font-size:14px;">{fact}</span>'
-                    f'</div>',
-                    unsafe_allow_html=True
-                )
+                
+                col1, col2 = st.columns([6, 1])
+                with col1:
+                    st.markdown(
+                        f'<div style="background:#1c1c27;border:1px solid #2a2940;border-radius:10px;'
+                        f'padding:12px 16px;margin-bottom:8px;">'
+                        f'<span style="color:#6b6980;font-size:11px;">🕐 {ts}</span><br>'
+                        f'<span style="color:#e0dff0;font-size:14px;">{fact}</span>'
+                        f'</div>',
+                        unsafe_allow_html=True
+                    )
+                with col2:
+                    st.markdown("<div style='margin-top: 15px;'>", unsafe_allow_html=True)
+                    if st.button("🗑️", key=f"del_mem_{i}", help="Delete this memory"):
+                        delete_long_term_memory(i)
+                        st.rerun()
+                    st.markdown("</div>", unsafe_allow_html=True)
     else:
         st.write("No long-term memories saved.")
         
@@ -655,6 +670,24 @@ else:
                     f'{chips}</div></details></div>',
                     unsafe_allow_html=True
                 )
+            
+            contexts = msg.get("contexts", [])
+            # Find the user question that preceded this assistant message
+            user_q = ""
+            msg_index = messages.index(msg)
+            if msg_index > 0 and messages[msg_index-1]["role"] == "user":
+                user_q = messages[msg_index-1]["content"]
+
+            if contexts and user_q:
+                col1, col2 = st.columns([1, 5])
+                with col1:
+                    if st.button("📊 Evaluate", key=f"eval_{msg_index}"):
+                        with st.spinner("Grading..."):
+                            scores = evaluate_single_turn(user_q, content, contexts)
+                            if "error" in scores:
+                                st.error(f"Eval failed: {scores['error']}")
+                            else:
+                                st.success(f"**Faithfulness:** {scores['faithfulness']:.2f} | **Relevancy:** {scores['answer_relevancy']:.2f}")
 
     if prompt := st.chat_input("Ask Yann LeCun anything..."):
 
@@ -681,12 +714,13 @@ else:
 
         with st.spinner("🧠 Yann is thinking..."):
             length = st.session_state.get("response_length", "Medium")
-            answer, sources = ask_twin(prompt, response_length=length)
+            answer, sources, contexts = ask_twin(prompt, response_length=length)
 
         active_chat["messages"].append({
             "role": "assistant",
             "content": answer,
-            "sources": sources
+            "sources": sources,
+            "contexts": contexts
         })
 
         st.rerun()
