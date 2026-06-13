@@ -1,26 +1,10 @@
 [
   {
-    "fact": "The user's name is Alex.",
-    "timestamp": "unknown"
-  },
-  {
-    "fact": "The user's name is Alex and they like to delve deeply into LLM knowledge.",
-    "timestamp": "unknown"
-  },
-  {
-    "fact": "The user is interested in the theoretical limitations of LLMs in achieving AGI, specifically exploring the perspective of Yann LeCun.",
-    "timestamp": "2026-06-05 17:14"
-  },
-  {
-    "fact": "The User is interested in or currently studying advanced machine learning concepts, specifically self-supervised learning (contrastive and non-contrastive methods) and the VICReg model.",
-    "timestamp": "2026-06-05 18:09"
+    "fact": "The User's name is Madhav.",
+    "timestamp": "2026-06-13 12:29"
   },
   {
     "fact": "The user's name is Madhav.",
-    "timestamp": "2026-06-05 18:15"
-  },
-  {
-    "fact": "PERSONAL PROFILE — The User's name is Madhav.",
-    "timestamp": "2026-06-05 18:19"
+    "timestamp": "2026-06-13 12:34"
   }
 ]

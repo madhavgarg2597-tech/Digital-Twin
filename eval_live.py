@@ -7,6 +7,7 @@ from ragas.llms import LangchainLLMWrapper
 from ragas.embeddings import LangchainEmbeddingsWrapper
 from langchain_groq import ChatGroq
 from langchain_community.embeddings import HuggingFaceEmbeddings
+from retrieval.config import EMBEDDING_MODEL
 
 load_dotenv(override=True)
 
@@ -38,7 +39,7 @@ def evaluate_single_turn(question, answer, contexts):
         )
 
         evaluator_embeddings = LangchainEmbeddingsWrapper(
-            HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+            HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL)
         )
 
         metrics = [faithfulness, answer_relevancy]
